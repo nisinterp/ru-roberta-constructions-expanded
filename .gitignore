@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+data/raw/
+data/items_all.jsonl
+data/items.jsonl
+data/rnc_items.jsonl
+results/*.jsonl
+*.log
+
+data/outside_items.jsonl
+*.partial

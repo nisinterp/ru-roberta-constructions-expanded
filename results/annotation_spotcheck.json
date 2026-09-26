@@ -1,0 +1,227 @@
+[
+  {
+    "key": "781:3:50:53",
+    "record": 781,
+    "text": "миг",
+    "name": "VP в один миг",
+    "char_start": 50,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "2776:1:56:61",
+    "record": 2776,
+    "text": "греха",
+    "name": "VP от греха (подальше)",
+    "char_start": 56,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "1002:3:97:100",
+    "record": 1002,
+    "text": "как",
+    "name": "NP-Gen как не бывало",
+    "char_start": 97,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "1756:2:15:18",
+    "record": 1756,
+    "text": "тут",
+    "name": "(а) (вот) тут/здесь PronPers-Nom VP!",
+    "char_start": 15,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "1559:3:87:88",
+    "record": 1559,
+    "text": "в",
+    "name": "VP/NP в NumCrd-Loc NP-Loc (от NP-Gen)",
+    "char_start": 87,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "1002:3:101:103",
+    "record": 1002,
+    "text": "не",
+    "name": "NP-Gen как не бывало",
+    "char_start": 101,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "796:1:22:29",
+    "record": 796,
+    "text": "порядке",
+    "name": "NP-Nom Cop в порядке вещей",
+    "char_start": 22,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "2704:2:94:100",
+    "record": 2704,
+    "text": "первый",
+    "name": "VP на первый случай",
+    "char_start": 94,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "3762:4:42:49",
+    "record": 3762,
+    "text": "головой",
+    "name": "VP с головой",
+    "char_start": 42,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "783:0:45:53",
+    "record": 783,
+    "text": "одиночку",
+    "name": "VP в одиночку",
+    "char_start": 45,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "2280:4:57:60",
+    "record": 2280,
+    "text": "нет",
+    "name": "Cl, нет?",
+    "char_start": 57,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "1158:0:26:28",
+    "record": 1158,
+    "text": "не",
+    "name": "ни шагу не VP",
+    "char_start": 26,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "2325:1:23:28",
+    "record": 2325,
+    "text": "сразу",
+    "name": "так бы сразу и VP-Pst, (что Cl)",
+    "char_start": 23,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "3652:1:45:47",
+    "record": 3652,
+    "text": "не",
+    "name": "NP-Nom (сам) на себя Cop не похож",
+    "char_start": 45,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "3938:1:33:35",
+    "record": 3938,
+    "text": "на",
+    "name": "держать NP-Acc на отлёте",
+    "char_start": 33,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "3694:1:20:31",
+    "record": 3694,
+    "text": "параллельно",
+    "name": "Pron-Dat параллельно на NP-Acc",
+    "char_start": 20,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "2981:2:0:7",
+    "record": 2981,
+    "text": "Красной",
+    "name": "красной нитью VP-Imp NP",
+    "char_start": 0,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "974:2:100:102",
+    "record": 974,
+    "text": "до",
+    "name": "до боли XP",
+    "char_start": 100,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "79:0:33:34",
+    "record": 79,
+    "text": "и",
+    "name": "NP-Nom Cop всё без NP-Gen и без ~NP-Gen",
+    "char_start": 33,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "3937:0:7:13",
+    "record": 3937,
+    "text": "держал",
+    "name": "держать путь на NP-Aсc",
+    "char_start": 7,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "1713:1:3:8",
+    "record": 1713,
+    "text": "рулём",
+    "name": "VP за рулём",
+    "char_start": 3,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "554:3:34:37",
+    "record": 554,
+    "text": "что",
+    "name": "самый что ни на есть NP",
+    "char_start": 34,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "3822:3:43:44",
+    "record": 3822,
+    "text": "в",
+    "name": "в одном/общем котле вариться (с NP-Ins)",
+    "char_start": 43,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "1580:3:72:80",
+    "record": 1580,
+    "text": "смешного",
+    "name": "VP до смешного/абсурда",
+    "char_start": 72,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  },
+  {
+    "key": "2435:2:47:54",
+    "record": 2435,
+    "text": "отъезде",
+    "name": "NP-Nom Cop в отъезде",
+    "char_start": 47,
+    "assessment": "plausible_anchor",
+    "reviewer": "AI-assisted linguistic spot-check, not independent gold annotation"
+  }
+]

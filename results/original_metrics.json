@@ -1,0 +1,135 @@
+{
+  "counts": {
+    "n_constructions": 300,
+    "n_examples": 1231,
+    "n_anchor": 2722,
+    "n_filler": 4379,
+    "n_other": 0,
+    "n_rnc_targets": 695,
+    "n_rnc_forms": 27,
+    "n_constructions_without_anchor_or_filler": 0,
+    "constructions_without_anchor_or_filler": []
+  },
+  "anchor_vs_filler_p_single": {
+    "n_anchor": 2406,
+    "n_filler": 3453,
+    "median_anchor": 0.9544132088014816,
+    "median_filler": 0.427388988064119,
+    "mean_anchor": 0.7402560076288864,
+    "mean_filler": 0.4792121649361144,
+    "share_gt_05_anchor": 0.755195344970906,
+    "share_gt_05_filler": 0.46481320590790615,
+    "mannwhitney_U": 5840120.5,
+    "mannwhitney_p": 2.010701373414803e-154,
+    "cliffs_delta": 0.40591674111371834,
+    "n_constructions": 281,
+    "n_diff_positive": 219,
+    "share_diff_positive": 0.7793594306049823,
+    "mean_constr_diff": 0.2539851071010145,
+    "median_constr_diff": 0.29345212344203175,
+    "sign_test_p": 1.0308175233093091e-21,
+    "cliffs_delta_ci95": [
+      0.3572640379477104,
+      0.45178114751563825
+    ],
+    "mean_constr_diff_ci95": [
+      0.21414856612886038,
+      0.2930360474839563
+    ]
+  },
+  "anchor_vs_filler_p_chain": {
+    "n_anchor": 2722,
+    "n_filler": 4379,
+    "median_anchor": 0.916834405938124,
+    "median_filler": 0.27368092971456703,
+    "mean_anchor": 0.6852355996469417,
+    "mean_filler": 0.40573633548175875,
+    "share_gt_05_anchor": 0.6972814107274063,
+    "share_gt_05_filler": 0.38935830098195934,
+    "mannwhitney_U": 8368149.5,
+    "mannwhitney_p": 8.104817290613577e-181,
+    "cliffs_delta": 0.4040945706572632,
+    "n_constructions": 300,
+    "n_diff_positive": 233,
+    "share_diff_positive": 0.7766666666666666,
+    "mean_constr_diff": 0.24327267771888045,
+    "median_constr_diff": 0.2704684619314749,
+    "sign_test_p": 1.1880740876280755e-22,
+    "cliffs_delta_ci95": [
+      0.35989915846093445,
+      0.4475707175705793
+    ],
+    "mean_constr_diff_ci95": [
+      0.20674169282980828,
+      0.2798204388698004
+    ]
+  },
+  "anchor_vs_filler_p_chain_single_token_subset": {
+    "n_anchor": 2406,
+    "n_filler": 3453,
+    "median_anchor": 0.9544132088014816,
+    "median_filler": 0.427388988064119,
+    "mean_anchor": 0.7402560076288864,
+    "mean_filler": 0.4792121649361144,
+    "share_gt_05_anchor": 0.755195344970906,
+    "share_gt_05_filler": 0.46481320590790615,
+    "mannwhitney_U": 5840120.5,
+    "mannwhitney_p": 2.010701373414803e-154,
+    "cliffs_delta": 0.40591674111371834
+  },
+  "lemma_variant": {
+    "n": 2406,
+    "median_form": 0.9544132088014816,
+    "median_lemma": 0.9726073145866392,
+    "mean_gain": 0.02363164498817662,
+    "share_gain_gt_0.01": 0.12759767248545303
+  },
+  "multitoken": {
+    "anchor": 0.11609110947832477,
+    "filler": 0.21146380452158026,
+    "other": NaN,
+    "rnc_target": 0.03597122302158273
+  },
+  "in_vs_out_p_single": {
+    "n_forms": 25,
+    "n_forms_in_higher": 19,
+    "median_in": 0.8435805182710893,
+    "median_out": 0.5622383740758723,
+    "mean_diff": 0.1815283119204799,
+    "mean_diff_ci95": [
+      0.09004690481963815,
+      0.26975038144951385
+    ],
+    "wilcoxon_W": 42.0,
+    "wilcoxon_p": 0.0006313323974609375,
+    "rank_biserial": 0.7415384615384616
+  },
+  "in_vs_out_p_chain": {
+    "n_forms": 27,
+    "n_forms_in_higher": 19,
+    "median_in": 0.8305384966382113,
+    "median_out": 0.5565619785131622,
+    "mean_diff": 0.15823277971189162,
+    "mean_diff_ci95": [
+      0.06858106903036879,
+      0.24868774159215773
+    ],
+    "wilcoxon_W": 66.0,
+    "wilcoxon_p": 0.0022483021020889282,
+    "rank_biserial": 0.6507936507936508
+  },
+  "in_vs_out_p_chain_filter_applicable_only": {
+    "n_forms": 5,
+    "n_forms_in_higher": 3,
+    "median_in": 0.729332803092261,
+    "median_out": 0.43914278743350693,
+    "mean_diff": 0.19810927102758974,
+    "mean_diff_ci95": [
+      -0.028716936953131413,
+      0.4370565119087536
+    ],
+    "wilcoxon_W": 3.0,
+    "wilcoxon_p": 0.3125,
+    "rank_biserial": 0.6
+  }
+}

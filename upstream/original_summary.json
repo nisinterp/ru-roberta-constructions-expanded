@@ -1,0 +1,135 @@
+{
+  "counts": {
+    "n_constructions": 30,
+    "n_examples": 150,
+    "n_anchor": 261,
+    "n_filler": 536,
+    "n_other": 714,
+    "n_rnc_targets": 2891,
+    "n_rnc_forms": 60,
+    "n_constructions_without_anchor_or_filler": 0,
+    "constructions_without_anchor_or_filler": []
+  },
+  "anchor_vs_filler_p_single": {
+    "n_anchor": 224,
+    "n_filler": 406,
+    "median_anchor": 0.9536250233650201,
+    "median_filler": 0.4398430734872815,
+    "mean_anchor": 0.7404638727326185,
+    "mean_filler": 0.4820581818990696,
+    "share_gt_05_anchor": 0.7589285714285714,
+    "share_gt_05_filler": 0.4753694581280788,
+    "mannwhitney_U": 63329.0,
+    "mannwhitney_p": 3.19983284996173e-16,
+    "cliffs_delta": 0.3927032019704433,
+    "n_constructions": 27,
+    "n_diff_positive": 20,
+    "share_diff_positive": 0.7407407407407407,
+    "mean_constr_diff": 0.26255597775447737,
+    "median_constr_diff": 0.31535420725450986,
+    "sign_test_p": 0.0191572904586792,
+    "cliffs_delta_ci95": [
+      0.20430322284078073,
+      0.5670562715964701
+    ],
+    "mean_constr_diff_ci95": [
+      0.12536085745713407,
+      0.39320735852584304
+    ]
+  },
+  "anchor_vs_filler_p_chain": {
+    "n_anchor": 261,
+    "n_filler": 536,
+    "median_anchor": 0.8843913078308101,
+    "median_filler": 0.23969093710184053,
+    "mean_anchor": 0.6676268603493378,
+    "mean_filler": 0.403300595913157,
+    "share_gt_05_anchor": 0.6819923371647509,
+    "share_gt_05_filler": 0.39552238805970147,
+    "mannwhitney_U": 96270.0,
+    "mannwhitney_p": 6.149744174096531e-18,
+    "cliffs_delta": 0.3763081145994167,
+    "n_constructions": 30,
+    "n_diff_positive": 22,
+    "share_diff_positive": 0.7333333333333333,
+    "mean_constr_diff": 0.23190135349092794,
+    "median_constr_diff": 0.22426884579603898,
+    "sign_test_p": 0.016124801710247997,
+    "cliffs_delta_ci95": [
+      0.19591727549605725,
+      0.5386819945652843
+    ],
+    "mean_constr_diff_ci95": [
+      0.10785261481532817,
+      0.3556542436026628
+    ]
+  },
+  "anchor_vs_filler_p_chain_single_token_subset": {
+    "n_anchor": 224,
+    "n_filler": 406,
+    "median_anchor": 0.9536250233650201,
+    "median_filler": 0.4398430734872815,
+    "mean_anchor": 0.7404638727326185,
+    "mean_filler": 0.4820581818990696,
+    "share_gt_05_anchor": 0.7589285714285714,
+    "share_gt_05_filler": 0.4753694581280788,
+    "mannwhitney_U": 63329.0,
+    "mannwhitney_p": 3.19983284996173e-16,
+    "cliffs_delta": 0.3927032019704433
+  },
+  "lemma_variant": {
+    "n": 224,
+    "median_form": 0.9536250233650201,
+    "median_lemma": 0.967023372650146,
+    "mean_gain": 0.026782907946255843,
+    "share_gain_gt_0.01": 0.16071428571428573
+  },
+  "multitoken": {
+    "anchor": 0.1417624521072797,
+    "filler": 0.24253731343283583,
+    "other": 0.1638655462184874,
+    "rnc_target": 0.18920788654444828
+  },
+  "in_vs_out_p_single": {
+    "n_forms": 47,
+    "n_forms_in_higher": 30,
+    "median_in": 0.729333162307739,
+    "median_out": 0.4759726499732637,
+    "mean_diff": 0.1383538930538054,
+    "mean_diff_ci95": [
+      0.06096497153929627,
+      0.21708876898746898
+    ],
+    "wilcoxon_W": 257.0,
+    "wilcoxon_p": 0.0008620196191060359,
+    "rank_biserial": 0.5443262411347518
+  },
+  "in_vs_out_p_chain": {
+    "n_forms": 60,
+    "n_forms_in_higher": 33,
+    "median_in": 0.5573619574308393,
+    "median_out": 0.387276933996347,
+    "mean_diff": 0.10876318495258554,
+    "mean_diff_ci95": [
+      0.041413214966593885,
+      0.17890912792900293
+    ],
+    "wilcoxon_W": 555.0,
+    "wilcoxon_p": 0.008044959221114732,
+    "rank_biserial": 0.39344262295081966
+  },
+  "in_vs_out_p_chain_filter_applicable_only": {
+    "n_forms": 37,
+    "n_forms_in_higher": 23,
+    "median_in": 0.765496832132339,
+    "median_out": 0.48825274985760436,
+    "mean_diff": 0.1636439123923156,
+    "mean_diff_ci95": [
+      0.07514804103767009,
+      0.25755796280193577
+    ],
+    "wilcoxon_W": 146.0,
+    "wilcoxon_p": 0.0014302863855846226,
+    "rank_biserial": 0.5846372688477952
+  }
+}

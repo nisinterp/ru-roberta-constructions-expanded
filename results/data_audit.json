@@ -1,0 +1,49 @@
+{
+  "seed": 20260926,
+  "source_constructions": 4001,
+  "eligible_constructions": 3844,
+  "eligible_examples": 15945,
+  "selected_constructions": 300,
+  "selected_examples": 1231,
+  "selected_word_counts": {
+    "filler": 4380,
+    "anchor": 2722,
+    "other": 7775
+  },
+  "excluded_examples": {
+    "no_anchor_match": 509,
+    "residual_markup": 73,
+    "no_annotated_slots": 477
+  },
+  "hf": {
+    "rows": 20993,
+    "constructions": 3998,
+    "columns": [
+      "pattern_id",
+      "example",
+      "pattern",
+      "example_type",
+      "synt_type",
+      "split"
+    ],
+    "exact_normalized_source_matches": 20637,
+    "unique_record_sentence_pairs": 20945,
+    "split_sizes": {
+      "test": 2853,
+      "train": 15298,
+      "validation": 2842
+    },
+    "example_types": {
+      "0": 16999,
+      "1": 3994
+    }
+  },
+  "rnc_targets": 695,
+  "rnc_forms": 27,
+  "rnc_filter_applicable_targets": 137,
+  "rnc_exclusions": {
+    "coanchor_match": 603,
+    "duplicate_or_overlap": 25,
+    "unmatched_form": 1568
+  }
+}
