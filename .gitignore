@@ -12,3 +12,7 @@ results/*.jsonl
 
 data/outside_items.jsonl
 *.partial
+
+.venv
+
+results/.run.lock

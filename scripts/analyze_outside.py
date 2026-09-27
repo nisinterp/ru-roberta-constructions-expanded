@@ -41,15 +41,18 @@ def main():
                     .join(outside.groupby(keys)[metric].mean().rename("outside"), how="inner")
                 )
                 pair["diff"] = pair.inside - pair.outside
-                construction_diffs = pair.groupby("record")["diff"].mean()
+                # Give each sentence equal weight, even when it has several matched POS groups.
+                sentence_means = pair.groupby(["record", "sentence_id"]).mean()
+                construction_means = sentence_means.groupby("record").mean()
+                construction_diffs = construction_means["diff"]
                 entry = dict(
                     role=role,
                     matching=matching,
                     metric=metric,
                     matched_cells=len(pair),
                     **paired_summary(construction_diffs),
-                    mean_in=float(pair.groupby("record").inside.mean().mean()),
-                    mean_out=float(pair.groupby("record").outside.mean().mean()),
+                    mean_in=float(construction_means.inside.mean()),
+                    mean_out=float(construction_means.outside.mean()),
                 )
                 comparisons.append(entry)
                 pair.to_csv(TABLES / f"outside_{role}_{matching}_{metric}.csv")

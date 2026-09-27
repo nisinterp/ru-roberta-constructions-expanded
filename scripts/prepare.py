@@ -1,7 +1,7 @@
-"""Audit both datasets and select a deterministic, larger construction sample."""
+"""Examine every source entry and prepare all examples usable by the original rules."""
 
 import argparse
-from collections import Counter, defaultdict
+from collections import Counter
 from functools import lru_cache
 import hashlib
 import json
@@ -43,9 +43,11 @@ def write_jsonl(path, rows):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--constructions", type=int, default=300, help="0 selects every eligible construction")
+    p.add_argument("--constructions", type=int, default=0, help="0 selects every eligible construction")
     p.add_argument("--seed", type=int, default=20260926)
     args = p.parse_args()
+    if args.constructions < 0:
+        p.error("--constructions must be zero or positive")
     all_rows, excluded, records, source_sentences = [], [], {}, set()
     for path in sorted((ROOT / "data/raw/constructicon").glob("*.yml")):
         rec = yaml.safe_load(path.read_text())
@@ -121,51 +123,6 @@ def main():
         json.dumps([records[r] for r in chosen], ensure_ascii=False, indent=2)
     )
     write_jsonl(ROOT / "data/parse_exclusions.jsonl", excluded)
-    # Refresh the original RNC co-anchor filter against the EXPANDED inventory.
-    # Retain a separately flagged subset in which every target construction has co-anchors.
-    form_records, record_keys = defaultdict(set), defaultdict(set)
-    form_keys = defaultdict(set)
-    for r in all_rows:
-        if r["type"] == "anchor":
-            form = norm(r["text"])
-            form_records[form].add(r["record"])
-            record_keys[r["record"]].add(r["anchor_key"])
-            form_keys[(form, r["record"])].add(r["anchor_key"])
-    in_keys = {sentence_key(r["sentence"]) for r in all_rows}
-    rnc, seen, rejected = [], set(), Counter()
-    selected_forms = {norm(w["text"]) for w in kept if w["type"] == "anchor"}
-    for line in (ROOT / "data/raw/rnc_original.jsonl").read_text().splitlines():
-        r = json.loads(line)
-        form = norm(r["form"])
-        if form not in selected_forms:
-            rejected["unmatched_form"] += 1
-            continue
-        key = (sentence_key(r["text"]), r["char_start"], r["char_end"])
-        if key in seen or key[0] in in_keys:
-            rejected["duplicate_or_overlap"] += 1
-            continue
-        seen.add(key)
-        words = original.split_words(r["text"])
-        keys = {norm(w) for _, _, w in words} | {original.lemma(w) for _, _, w in words}
-        sets = [record_keys[rid] - form_keys[(form, rid)] for rid in form_records[form]]
-        if any(s and s <= keys for s in sets):
-            rejected["coanchor_match"] += 1
-            continue
-        rnc.append(
-            {
-                **r,
-                "filter_applicable": all(bool(s) for s in sets),
-                "sentence": r["text"],
-                "text": r["text"][r["char_start"] : r["char_end"]],
-                "type": "rnc",
-                "record": -1,
-                "example_idx": len(rnc),
-                "sentence_id": hashlib.sha256(key[0].encode()).hexdigest()[:20],
-                "source": "upstream_cached_RNC",
-                "records": sorted(form_records[form]),
-            }
-        )
-    write_jsonl(ROOT / "data/rnc_items.jsonl", rnc)
     audit = dict(
         seed=args.seed,
         source_constructions=len(records),
@@ -173,13 +130,12 @@ def main():
         eligible_examples=len({(r["record"], r["example_idx"]) for r in all_rows}),
         selected_constructions=len(chosen),
         selected_examples=len(owner),
+        represented_constructions=len({r["record"] for r in kept}),
+        ineligible_constructions=sorted(set(records) - set(eligible)),
+        lost_after_deduplication=sorted(selected - {r["record"] for r in kept}),
         selected_word_counts=dict(Counter(r["type"] for r in kept)),
         excluded_examples=dict(Counter(r["reason"] for r in excluded)),
         hf=hf_audit,
-        rnc_targets=len(rnc),
-        rnc_forms=len({r["form"] for r in rnc}),
-        rnc_filter_applicable_targets=sum(r["filter_applicable"] for r in rnc),
-        rnc_exclusions=dict(rejected),
     )
     (ROOT / "results/data_audit.json").write_text(json.dumps(audit, indent=2))
     print(json.dumps(audit, indent=2))

@@ -1,0 +1,4370 @@
+[
+  {
+    "record": 5,
+    "name": "(а) Noun-Nom/кто (же) (PronPers-3.Acc) знает, Cl",
+    "anchors": [
+      "а",
+      "же",
+      "знает",
+      "кто"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Pronoun",
+      "Particle",
+      "Verb"
+    ]
+  },
+  {
+    "record": 8,
+    "name": "(вот) то́-то и оно́, что Cl/XP",
+    "anchors": [
+      "вот",
+      "и",
+      "оно",
+      "то",
+      "что"
+    ],
+    "kind": "func",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Particle",
+      "Conjunction",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 14,
+    "name": "Cl, разве что/только XP/Cl",
+    "anchors": [
+      "разве",
+      "только",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Connection Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Particle"
+    ]
+  },
+  {
+    "record": 37,
+    "name": "больно Adv/Adj/Pred",
+    "anchors": [
+      "больно"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 38,
+    "name": "NP-Nom бросить VP-Ipfv.Inf",
+    "anchors": [
+      "бросить"
+    ],
+    "kind": "content",
+    "syn": "Matrix and Infinitival Complement Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 48,
+    "name": "в жизни не VP (ничего подобного)",
+    "anchors": [
+      "в",
+      "жизни",
+      "не",
+      "ничего",
+      "подобного"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun",
+      "Negation Marker",
+      "Pronoun",
+      "Adjective"
+    ]
+  },
+  {
+    "record": 57,
+    "name": "NP-Nom взять и VP-Pfv",
+    "anchors": [
+      "взять",
+      "и"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Verb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 58,
+    "name": "Cl вне зависимости от NP-Gen",
+    "anchors": [
+      "вне",
+      "зависимости",
+      "от"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition"
+    ]
+  },
+  {
+    "record": 67,
+    "name": "(вот) (уже) (NumCrd-Nom/NumCrd-Acc) NP Cop как Cl/NP-Nom (вот) (уже) (NumCrd-Acc) NP как XP",
+    "anchors": [
+      "вот",
+      "как",
+      "уже"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction; Biclausal Construction; Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Particle",
+      "Adverb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 73,
+    "name": "время от времени Cl",
+    "anchors": [
+      "времени",
+      "время",
+      "от"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 79,
+    "name": "NP-Nom Cop всё без NP-Gen и без ~NP-Gen",
+    "anchors": [
+      "без",
+      "все",
+      "и"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 85,
+    "name": "всё VP-Ipfv",
+    "anchors": [
+      "все"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 91,
+    "name": "где бы ни VP-Pst, Cl",
+    "anchors": [
+      "бы",
+      "где",
+      "ни"
+    ],
+    "kind": "mixed",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Particle",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 96,
+    "name": "давай(те) VP-Fut.1.Pl!",
+    "anchors": [
+      "давай",
+      "те"
+    ],
+    "kind": "content",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Particle"
+    ]
+  },
+  {
+    "record": 103,
+    "name": "NP-Nom делать вид, что Cl",
+    "anchors": [
+      "вид",
+      "делать",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 131,
+    "name": "NP-Nom Cop здоров VP-Inf",
+    "anchors": [
+      "здоров"
+    ],
+    "kind": "content",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Predicative"
+    ]
+  },
+  {
+    "record": 137,
+    "name": "к ужасу/счастью NP-Gen, Cl/на счастье NP-Gen, Cl",
+    "anchors": [
+      "к",
+      "на",
+      "счастье",
+      "счастью",
+      "ужасу"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 139,
+    "name": "каждый/всякий раз VP, (когда Cl)",
+    "anchors": [
+      "всякий",
+      "каждый",
+      "когда",
+      "раз"
+    ],
+    "kind": "mixed",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Noun",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 153,
+    "name": "как XP, так и XP",
+    "anchors": [
+      "и",
+      "как",
+      "так"
+    ],
+    "kind": "func",
+    "syn": "Connection Construction",
+    "declared_anchor_pos": [
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 166,
+    "name": "какой, к чёрту, NP!",
+    "anchors": [
+      "к",
+      "какой",
+      "черту"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 173,
+    "name": "куда (там) NP-Dat Cop до NP-Gen",
+    "anchors": [
+      "до",
+      "куда",
+      "там"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 185,
+    "name": "VP на основе NP-Gen",
+    "anchors": [
+      "на",
+      "основе"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 198,
+    "name": "NP-Nom не мочь не VP-Inf",
+    "anchors": [
+      "мочь",
+      "не"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Infinitival Complement Construction",
+    "declared_anchor_pos": [
+      "Negation Marker",
+      "Verb"
+    ]
+  },
+  {
+    "record": 213,
+    "name": "не VP ни NP-Gen",
+    "anchors": [
+      "не",
+      "ни"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 216,
+    "name": "невесть PronInt",
+    "anchors": [
+      "невесть"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Particle"
+    ]
+  },
+  {
+    "record": 218,
+    "name": "нельзя ли Cop VP-Inf?",
+    "anchors": [
+      "ли",
+      "нельзя"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Particle"
+    ]
+  },
+  {
+    "record": 222,
+    "name": "нет бы (NP-Dat) VP-Inf, Cl",
+    "anchors": [
+      "бы",
+      "нет"
+    ],
+    "kind": "func",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Negation Marker",
+      "Particle"
+    ]
+  },
+  {
+    "record": 223,
+    "name": "нет чтобы VP-Inf, Cl",
+    "anchors": [
+      "нет",
+      "чтобы"
+    ],
+    "kind": "func",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Conjunction",
+      "Negation Marker",
+      "Particle"
+    ]
+  },
+  {
+    "record": 226,
+    "name": "нечего Cop VP-Ipfv.Inf!",
+    "anchors": [
+      "нечего"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 246,
+    "name": "NP-Nom Cop ничуть не Adj-Cmp NP-Gen/VP ничуть не Adv-Cmp NP-Gen",
+    "anchors": [
+      "не",
+      "ничуть"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 255,
+    "name": "оно и XP",
+    "anchors": [
+      "и",
+      "оно"
+    ],
+    "kind": "func",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Particle"
+    ]
+  },
+  {
+    "record": 260,
+    "name": "ох уж этот NP-Nom!",
+    "anchors": [
+      "ох",
+      "уж",
+      "этот"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Interjection",
+      "Particle",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 294,
+    "name": "с PronPers-Gen хватит/хватило (NP-Gen)!",
+    "anchors": [
+      "с",
+      "хватило",
+      "хватит"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Verb",
+      "Predicative"
+    ]
+  },
+  {
+    "record": 306,
+    "name": "сколько бы ни VP-Pst, Cl",
+    "anchors": [
+      "бы",
+      "ни",
+      "сколько"
+    ],
+    "kind": "mixed",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Particle",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 307,
+    "name": "NP-Nom Cop слишком Adj, чтобы VP-Inf",
+    "anchors": [
+      "слишком",
+      "чтобы"
+    ],
+    "kind": "mixed",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 315,
+    "name": "стать-Fut NP-Nom VP-Inf!",
+    "anchors": [
+      "стать"
+    ],
+    "kind": "content",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 322,
+    "name": "такой же XP как и NP",
+    "anchors": [
+      "же",
+      "и",
+      "как",
+      "такой"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Particle",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 351,
+    "name": "хоть NP, хоть NP",
+    "anchors": [
+      "хоть"
+    ],
+    "kind": "func",
+    "syn": "Connection Construction",
+    "declared_anchor_pos": [
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 365,
+    "name": "что касается NP-Gen, то Cl",
+    "anchors": [
+      "касается",
+      "то",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Verb",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 380,
+    "name": "чтоб(ы) PronPers-Nom/PronDem-Nom/PronDem-Gen больше не VP-Pst!",
+    "anchors": [
+      "больше",
+      "не",
+      "чтоб",
+      "ы"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Particle",
+      "Adverb",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 385,
+    "name": "чуть что – Cl",
+    "anchors": [
+      "что",
+      "чуть"
+    ],
+    "kind": "mixed",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Particle",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 448,
+    "name": "и так XP, (а) Cl",
+    "anchors": [
+      "а",
+      "и",
+      "так"
+    ],
+    "kind": "func",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Particle",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 451,
+    "name": "как будто VP",
+    "anchors": [
+      "будто",
+      "как"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Particle"
+    ]
+  },
+  {
+    "record": 472,
+    "name": "NP-Dat Cop всё равно",
+    "anchors": [
+      "все",
+      "равно"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Predicative"
+    ]
+  },
+  {
+    "record": 479,
+    "name": "NP-Dat Cop не до NP-Gen",
+    "anchors": [
+      "до",
+      "не"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Negation Marker",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 485,
+    "name": "(NP-Dat) стоить VP-Inf",
+    "anchors": [
+      "стоить"
+    ],
+    "kind": "content",
+    "syn": "Matrix and Infinitival Complement Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 507,
+    "name": "NP-Nom вести в NP-Acc",
+    "anchors": [
+      "в",
+      "вести"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 513,
+    "name": "NP-Nom закатиться/залиться NP-Ins",
+    "anchors": [
+      "закатиться",
+      "залиться"
+    ],
+    "kind": "content",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 519,
+    "name": "VP по NP-Acc",
+    "anchors": [
+      "по"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition"
+    ]
+  },
+  {
+    "record": 527,
+    "name": "NP-Nom Cop на носу",
+    "anchors": [
+      "на",
+      "носу"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 550,
+    "name": "NP-Nom прийтись-Pst (NP-Dat) впору/в самый раз/как раз/в аккурат",
+    "anchors": [
+      "аккурат",
+      "в",
+      "впору",
+      "как",
+      "прийтись",
+      "раз",
+      "самый"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Adverb",
+      "Preposition",
+      "Pronoun",
+      "Noun"
+    ]
+  },
+  {
+    "record": 554,
+    "name": "самый что ни на есть NP",
+    "anchors": [
+      "есть",
+      "на",
+      "ни",
+      "самый",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Negation Marker",
+      "Preposition",
+      "Verb"
+    ]
+  },
+  {
+    "record": 556,
+    "name": "NP-Nom слыть NP-Ins",
+    "anchors": [
+      "слыть"
+    ],
+    "kind": "content",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 561,
+    "name": "таки VP",
+    "anchors": [
+      "таки"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Particle"
+    ]
+  },
+  {
+    "record": 567,
+    "name": "NP-Nom числиться Adj-Ins/NP-Ins",
+    "anchors": [
+      "числиться"
+    ],
+    "kind": "content",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 624,
+    "name": "(Cl, но) всë-таки/всë ж таки/всë же/всë равно Cl",
+    "anchors": [
+      "вс",
+      "ж",
+      "же",
+      "но",
+      "равно",
+      "таки"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Particle",
+      "Pronoun",
+      "Adjective"
+    ]
+  },
+  {
+    "record": 643,
+    "name": "VP NP-Gen на NumCrd-Acc",
+    "anchors": [
+      "на"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition"
+    ]
+  },
+  {
+    "record": 661,
+    "name": "VP-Pst бы, Cl бы",
+    "anchors": [
+      "бы"
+    ],
+    "kind": "func",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Particle"
+    ]
+  },
+  {
+    "record": 666,
+    "name": "небось, Cl",
+    "anchors": [
+      "небось"
+    ],
+    "kind": "func",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 670,
+    "name": "VP ничего (так)",
+    "anchors": [
+      "ничего",
+      "так"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Adverb",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 688,
+    "name": "(а/да) ну PronPers-Acc, этот NP-Acc",
+    "anchors": [
+      "а",
+      "да",
+      "ну",
+      "этот"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Particle",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 696,
+    "name": "Cl, а PronPers-то думал!",
+    "anchors": [
+      "а",
+      "думал",
+      "то"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Particle",
+      "Verb"
+    ]
+  },
+  {
+    "record": 725,
+    "name": "Cl, и безо всяких!",
+    "anchors": [
+      "безо",
+      "всяких",
+      "и"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Particle",
+      "Preposition",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 753,
+    "name": "NP/PP в большинстве своем VP",
+    "anchors": [
+      "большинстве",
+      "в",
+      "своем"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 763,
+    "name": "в конце концов VP",
+    "anchors": [
+      "в",
+      "конце",
+      "концов"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 781,
+    "name": "VP в один миг",
+    "anchors": [
+      "в",
+      "миг",
+      "один"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun",
+      "Numeral"
+    ]
+  },
+  {
+    "record": 783,
+    "name": "VP в одиночку",
+    "anchors": [
+      "в",
+      "одиночку"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 792,
+    "name": "в плане NP-Gen Cl",
+    "anchors": [
+      "в",
+      "плане"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 796,
+    "name": "NP-Nom Cop в порядке вещей",
+    "anchors": [
+      "в",
+      "вещей",
+      "порядке"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 801,
+    "name": "NP-Nom Cop Adj-Short в применении к NP-Dat/VP в применении к NP-Dat",
+    "anchors": [
+      "в",
+      "к",
+      "применении"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 803,
+    "name": "Cl в противовес NP-Dat",
+    "anchors": [
+      "в",
+      "противовес"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 821,
+    "name": "в смысле NP-Gen Cl",
+    "anchors": [
+      "в",
+      "смысле"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 823,
+    "name": "в среднем NumCrd NP-Gen",
+    "anchors": [
+      "в",
+      "среднем"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective"
+    ]
+  },
+  {
+    "record": 848,
+    "name": "вдоль и поперёк VP",
+    "anchors": [
+      "вдоль",
+      "и",
+      "поперек"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 857,
+    "name": "вечно VP",
+    "anchors": [
+      "вечно"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 859,
+    "name": "видит бог, Cl",
+    "anchors": [
+      "бог",
+      "видит"
+    ],
+    "kind": "content",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun"
+    ]
+  },
+  {
+    "record": 870,
+    "name": "VP во власти NP-Gen",
+    "anchors": [
+      "власти",
+      "во"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 892,
+    "name": "(вот) Cop NP-Dat урок, (как VP-Ipfv.Inf)!",
+    "anchors": [
+      "вот",
+      "как",
+      "урок"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Particle",
+      "Noun",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 974,
+    "name": "до боли XP",
+    "anchors": [
+      "боли",
+      "до"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1002,
+    "name": "NP-Gen как не бывало",
+    "anchors": [
+      "бывало",
+      "как",
+      "не"
+    ],
+    "kind": "func",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Negation Marker",
+      "Verb"
+    ]
+  },
+  {
+    "record": 1019,
+    "name": "если PronPers-1 правильно понять/понимать, Cl",
+    "anchors": [
+      "если",
+      "понимать",
+      "понять",
+      "правильно"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Adverb",
+      "Verb"
+    ]
+  },
+  {
+    "record": 1034,
+    "name": "за неимением/недостатком/отсутствием (у NP-Gen) NP-Gen VP",
+    "anchors": [
+      "за",
+      "недостатком",
+      "неимением",
+      "отсутствием",
+      "у"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1049,
+    "name": "(NP-Dat) и без NP-Gen хватать NP-Gen",
+    "anchors": [
+      "без",
+      "и",
+      "хватать"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Particle",
+      "Preposition",
+      "Verb"
+    ]
+  },
+  {
+    "record": 1077,
+    "name": "NP из среды NP-Gen",
+    "anchors": [
+      "из",
+      "среды"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1096,
+    "name": "к чёрту NP-Acc!",
+    "anchors": [
+      "к",
+      "черту"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1105,
+    "name": "как говорится, XP",
+    "anchors": [
+      "говорится",
+      "как"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Verb"
+    ]
+  },
+  {
+    "record": 1110,
+    "name": "как знать, Cl",
+    "anchors": [
+      "знать",
+      "как"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Verb"
+    ]
+  },
+  {
+    "record": 1123,
+    "name": "как ни Pred Cop VP-Inf, (а/но) Cl",
+    "anchors": [
+      "а",
+      "как",
+      "ни",
+      "но"
+    ],
+    "kind": "func",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Negation Marker",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 1129,
+    "name": "Можно не сомневаться, (что) Cl",
+    "anchors": [
+      "можно",
+      "не",
+      "сомневаться",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Negation Marker",
+      "Verb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 1131,
+    "name": "подумать только, Cl",
+    "anchors": [
+      "подумать",
+      "только"
+    ],
+    "kind": "content",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Verb",
+      "Particle"
+    ]
+  },
+  {
+    "record": 1149,
+    "name": "NP-Nom стать NP-Ins",
+    "anchors": [
+      "стать"
+    ],
+    "kind": "content",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 1158,
+    "name": "ни шагу не VP",
+    "anchors": [
+      "не",
+      "ни",
+      "шагу"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 1175,
+    "name": "NP-Nom выдавать NP-Acc за NP-Acc",
+    "anchors": [
+      "выдавать",
+      "за"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1186,
+    "name": "намного Adj-Cmp/Adv-Cmp",
+    "anchors": [
+      "намного"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1215,
+    "name": "(NP-Dat) Cop можно VP-Inf",
+    "anchors": [
+      "можно"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Predicative"
+    ]
+  },
+  {
+    "record": 1268,
+    "name": "у NP-Gen с NP-Ins Cop/VP NP-Nom",
+    "anchors": [
+      "с",
+      "у"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1335,
+    "name": "NP-Nom иметь (Adj-Acc) силу",
+    "anchors": [
+      "иметь",
+      "силу"
+    ],
+    "kind": "content",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1336,
+    "name": "NP-Nom представлять собой NP-Acc",
+    "anchors": [
+      "представлять",
+      "собой"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 1350,
+    "name": "всё время VP",
+    "anchors": [
+      "время",
+      "все"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 1362,
+    "name": "VP по ходу NP-Gen",
+    "anchors": [
+      "по",
+      "ходу"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1377,
+    "name": "VP под PronPoss руководством",
+    "anchors": [
+      "под",
+      "руководством"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1384,
+    "name": "NP/VP на вынос",
+    "anchors": [
+      "вынос",
+      "на"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1385,
+    "name": "NP/VP с доставкой",
+    "anchors": [
+      "доставкой",
+      "с"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1387,
+    "name": "NP/VP на дому",
+    "anchors": [
+      "дому",
+      "на"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1415,
+    "name": "NP-Nom Cop (не) в теме (NP-Gen)",
+    "anchors": [
+      "в",
+      "не",
+      "теме"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 1432,
+    "name": "NP/VP по теме NP-Gen",
+    "anchors": [
+      "по",
+      "теме"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1463,
+    "name": "с трудом VP",
+    "anchors": [
+      "с",
+      "трудом"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1480,
+    "name": "жутко XP",
+    "anchors": [
+      "жутко"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1488,
+    "name": "Adv-Cmp/Adj-Cmp (всех) остальных",
+    "anchors": [
+      "всех",
+      "остальных"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adjective",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 1498,
+    "name": "тотальный Noun",
+    "anchors": [
+      "тотальный"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adjective"
+    ]
+  },
+  {
+    "record": 1527,
+    "name": "Adj как чёрт",
+    "anchors": [
+      "как",
+      "черт"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1541,
+    "name": "примерно/приблизительно VP",
+    "anchors": [
+      "приблизительно",
+      "примерно"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1549,
+    "name": "NP площадью (в) NumCrd NP",
+    "anchors": [
+      "в",
+      "площадью"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1556,
+    "name": "расстояние от NP-Gen до NP-Gen (VP) NumCrd NP-Gen",
+    "anchors": [
+      "до",
+      "от",
+      "расстояние"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1559,
+    "name": "VP/NP в NumCrd-Loc NP-Loc (от NP-Gen)",
+    "anchors": [
+      "в",
+      "от"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1580,
+    "name": "VP до смешного/абсурда",
+    "anchors": [
+      "абсурда",
+      "до",
+      "смешного"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1590,
+    "name": "временами VP-Ipfv",
+    "anchors": [
+      "временами"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1610,
+    "name": "в мгновение ока VP-Pfv",
+    "anchors": [
+      "в",
+      "мгновение",
+      "ока"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1622,
+    "name": "Cl, прежде чем Cl",
+    "anchors": [
+      "прежде",
+      "чем"
+    ],
+    "kind": "func",
+    "syn": "Connection Construction",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 1631,
+    "name": "VP вовремя",
+    "anchors": [
+      "вовремя"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1634,
+    "name": "наконец(-то) VP",
+    "anchors": [
+      "наконец",
+      "то"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1642,
+    "name": "VP без году неделя/NP-Nom Cop Adv/PP без году неделя",
+    "anchors": [
+      "без",
+      "году",
+      "неделя"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1662,
+    "name": "VP NumCrd NP (тому) назад",
+    "anchors": [
+      "назад",
+      "тому"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Pronoun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1664,
+    "name": "однажды VP-Pst",
+    "anchors": [
+      "однажды"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1667,
+    "name": "недавно VP",
+    "anchors": [
+      "недавно"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1713,
+    "name": "VP за рулём",
+    "anchors": [
+      "за",
+      "рулем"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1720,
+    "name": "NP-Nom стоять в/на NP-Loc",
+    "anchors": [
+      "в",
+      "на",
+      "стоять"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1729,
+    "name": "VP перед лицом NP-Gen",
+    "anchors": [
+      "лицом",
+      "перед"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1751,
+    "name": "VP NP-Ins вперёд/назад",
+    "anchors": [
+      "вперед",
+      "назад"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1756,
+    "name": "(а) (вот) тут/здесь PronPers-Nom VP!",
+    "anchors": [
+      "а",
+      "вот",
+      "здесь",
+      "тут"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Particle",
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1766,
+    "name": "NP-Nom не Verb-Prs и не Verb-Prs/Verb-Fut VP-Inf",
+    "anchors": [
+      "и",
+      "не"
+    ],
+    "kind": "func",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Negation Marker",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 1767,
+    "name": "NP-Nom не Verb-Pst и не Verb-Pst VP-Inf",
+    "anchors": [
+      "и",
+      "не"
+    ],
+    "kind": "func",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Negation Marker",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 1794,
+    "name": "стопроцентно XP",
+    "anchors": [
+      "стопроцентно"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 1804,
+    "name": "NP-Nom Cop за NP-Acc",
+    "anchors": [
+      "за"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1809,
+    "name": "Как вариант, можно Cop VP-Inf / (NP-Nom) мочь VP-Inf",
+    "anchors": [
+      "вариант",
+      "как",
+      "можно",
+      "мочь"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Noun",
+      "Predicative",
+      "Verb"
+    ]
+  },
+  {
+    "record": 1816,
+    "name": "Только не VP-Imp!",
+    "anchors": [
+      "не",
+      "только"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Particle",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 1830,
+    "name": "NP на имя NP-Gen",
+    "anchors": [
+      "имя",
+      "на"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1854,
+    "name": "с NP-Gen Cop NumCrd-Nom NP-Gen",
+    "anchors": [
+      "с"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1865,
+    "name": "NP-Nom Cop равен/равняется NumCrd-Dat (NP-Dat/NP-Gen)",
+    "anchors": [
+      "равен",
+      "равняется"
+    ],
+    "kind": "content",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Verb"
+    ]
+  },
+  {
+    "record": 1868,
+    "name": "ко всему прочему, Cl",
+    "anchors": [
+      "всему",
+      "ко",
+      "прочему"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 1875,
+    "name": "наряду с этим, Cl",
+    "anchors": [
+      "наряду",
+      "с",
+      "этим"
+    ],
+    "kind": "mixed",
+    "syn": "Connection Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 1882,
+    "name": "с таким/тем же успехом Cl",
+    "anchors": [
+      "же",
+      "с",
+      "таким",
+      "тем",
+      "успехом"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun",
+      "Pronoun",
+      "Particle"
+    ]
+  },
+  {
+    "record": 1899,
+    "name": "Cl помимо NP-Gen",
+    "anchors": [
+      "помимо"
+    ],
+    "kind": "func",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1900,
+    "name": "не говоря (уже) о NP-Loc Cl",
+    "anchors": [
+      "говоря",
+      "не",
+      "о",
+      "уже"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Converb",
+      "Negation Marker",
+      "Adverb",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 1943,
+    "name": "Как Cop PronPoss имя/фамилия/отчество?",
+    "anchors": [
+      "имя",
+      "как",
+      "отчество",
+      "фамилия"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 1957,
+    "name": "Итак, Cl",
+    "anchors": [
+      "итак"
+    ],
+    "kind": "func",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Particle"
+    ]
+  },
+  {
+    "record": 1977,
+    "name": "VP за счёт NP-Gen",
+    "anchors": [
+      "за",
+      "счет"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 1991,
+    "name": "по условиям NP-Gen Cl",
+    "anchors": [
+      "по",
+      "условиям"
+    ],
+    "kind": "mixed",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2010,
+    "name": "(один) раз VP-Fut, (потом) Cl",
+    "anchors": [
+      "один",
+      "потом",
+      "раз"
+    ],
+    "kind": "content",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Numeral",
+      "Noun",
+      "Adverb"
+    ]
+  },
+  {
+    "record": 2041,
+    "name": "VP все и каждый",
+    "anchors": [
+      "все",
+      "и",
+      "каждый"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 2047,
+    "name": "(по) NumCrd NP каждый",
+    "anchors": [
+      "каждый",
+      "по"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 2049,
+    "name": "XP ли, XP ли, Cl",
+    "anchors": [
+      "ли"
+    ],
+    "kind": "func",
+    "syn": "Connection Construction",
+    "declared_anchor_pos": [
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 2053,
+    "name": "как раз VP/Adv",
+    "anchors": [
+      "как",
+      "раз"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 2061,
+    "name": "(NP-Dat) VP-Inf Cop некогда",
+    "anchors": [
+      "некогда"
+    ],
+    "kind": "content",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Negation Marker",
+      "Predicative"
+    ]
+  },
+  {
+    "record": 2127,
+    "name": "NP-Nom обязываться VP-Inf",
+    "anchors": [
+      "обязываться"
+    ],
+    "kind": "content",
+    "syn": "Matrix and Infinitival Complement Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 2135,
+    "name": "спору/спора нет, Cl",
+    "anchors": [
+      "нет",
+      "спора",
+      "спору"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Noun",
+      "Predicative",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 2150,
+    "name": "(Cl,) (а) вдруг VP-Fut",
+    "anchors": [
+      "а",
+      "вдруг"
+    ],
+    "kind": "mixed",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Particle",
+      "Adverb"
+    ]
+  },
+  {
+    "record": 2152,
+    "name": "не дай Бог/Боже (NP-Dat) VP-Pfv.Inf",
+    "anchors": [
+      "бог",
+      "боже",
+      "дай",
+      "не"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Negation Marker",
+      "Verb",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2170,
+    "name": "что NP-Nom натворить!",
+    "anchors": [
+      "натворить",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Verb"
+    ]
+  },
+  {
+    "record": 2183,
+    "name": "VP на пользу NP-Dat",
+    "anchors": [
+      "на",
+      "пользу"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2186,
+    "name": "NP-Dat Cop (ещё) рано/(уже) поздно VP-Inf",
+    "anchors": [
+      "еще",
+      "поздно",
+      "рано",
+      "уже"
+    ],
+    "kind": "content",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Predicative"
+    ]
+  },
+  {
+    "record": 2191,
+    "name": "(Мы) ещё посмотрим, Sconj Cl",
+    "anchors": [
+      "еще",
+      "мы",
+      "посмотрим"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Adverb",
+      "Verb"
+    ]
+  },
+  {
+    "record": 2215,
+    "name": "обречённый на NP-Acc",
+    "anchors": [
+      "на",
+      "обреченный"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Participle",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 2226,
+    "name": "Cl, благо что Cl",
+    "anchors": [
+      "благо",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Connection Construction",
+    "declared_anchor_pos": [
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 2240,
+    "name": "VP на досуге",
+    "anchors": [
+      "досуге",
+      "на"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2265,
+    "name": "(у NP-Gen) NP-Gen/с NP-Ins негусто Cop",
+    "anchors": [
+      "негусто",
+      "с",
+      "у"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 2270,
+    "name": "друг (Prep) дружку VP",
+    "anchors": [
+      "друг",
+      "дружку"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 2280,
+    "name": "Cl, нет?",
+    "anchors": [
+      "нет"
+    ],
+    "kind": "func",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Negation Marker"
+    ]
+  },
+  {
+    "record": 2305,
+    "name": "XP, не могу!",
+    "anchors": [
+      "могу",
+      "не"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Negation Marker",
+      "Verb"
+    ]
+  },
+  {
+    "record": 2325,
+    "name": "так бы сразу и VP-Pst, (что Cl)",
+    "anchors": [
+      "бы",
+      "и",
+      "сразу",
+      "так",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Particle",
+      "Adverb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 2339,
+    "name": "PronPers-Nom не находить, что Cl?",
+    "anchors": [
+      "находить",
+      "не",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Negation Marker",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 2364,
+    "name": "VP без запинки",
+    "anchors": [
+      "без",
+      "запинки"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2378,
+    "name": "VP без передышки",
+    "anchors": [
+      "без",
+      "передышки"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2383,
+    "name": "VP/NP без руля и без ветрил",
+    "anchors": [
+      "без",
+      "ветрил",
+      "и",
+      "руля"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2401,
+    "name": "NP-Nom Cop/VP в гостях (у NP-Gen)",
+    "anchors": [
+      "в",
+      "гостях",
+      "у"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 2407,
+    "name": "VP вдогонку",
+    "anchors": [
+      "вдогонку"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 2410,
+    "name": "NP-Nom Cop в доле",
+    "anchors": [
+      "в",
+      "доле"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 2419,
+    "name": "VP в зародыше",
+    "anchors": [
+      "в",
+      "зародыше"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 2420,
+    "name": "VP/NP-Nom Cop в здравом уме",
+    "anchors": [
+      "в",
+      "здравом",
+      "уме"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 2421,
+    "name": "NP-Nom/NP-Gen Cop (у NP-Gen) в избытке",
+    "anchors": [
+      "в",
+      "избытке",
+      "у"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 2432,
+    "name": "VP в открытую",
+    "anchors": [
+      "в",
+      "открытую"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2435,
+    "name": "NP-Nom Cop в отъезде",
+    "anchors": [
+      "в",
+      "отъезде"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2436,
+    "name": "VP в охапку",
+    "anchors": [
+      "в",
+      "охапку"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2444,
+    "name": "VP/NP в отключке",
+    "anchors": [
+      "в",
+      "отключке"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2456,
+    "name": "VP/NP в рассрочку",
+    "anchors": [
+      "в",
+      "рассрочку"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2462,
+    "name": "в свою очередь, Cl",
+    "anchors": [
+      "в",
+      "очередь",
+      "свою"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2473,
+    "name": "VP в такт (NP-Dat)",
+    "anchors": [
+      "в",
+      "такт"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 2475,
+    "name": "VP в тот же час",
+    "anchors": [
+      "в",
+      "же",
+      "тот",
+      "час"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Particle",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2484,
+    "name": "VP взад и вперед/взад-вперед",
+    "anchors": [
+      "взад",
+      "взад-вперед",
+      "вперед",
+      "и"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 2497,
+    "name": "VP во все горло/во всю глотку",
+    "anchors": [
+      "во",
+      "все",
+      "всю",
+      "глотку",
+      "горло"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2501,
+    "name": "VP/NP во славу NP-Gen",
+    "anchors": [
+      "во",
+      "славу"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2507,
+    "name": "VP всеми правдами и неправдами",
+    "anchors": [
+      "всеми",
+      "и",
+      "неправдами",
+      "правдами"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Noun",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 2512,
+    "name": "PronInt придется",
+    "anchors": [
+      "придется"
+    ],
+    "kind": "content",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Verb"
+    ]
+  },
+  {
+    "record": 2529,
+    "name": "VP для отвода/отводу глаз",
+    "anchors": [
+      "глаз",
+      "для",
+      "отвода",
+      "отводу"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2533,
+    "name": "VP для форса/форсу",
+    "anchors": [
+      "для",
+      "форса",
+      "форсу"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2551,
+    "name": "VP/NP из-под прилавка",
+    "anchors": [
+      "из-под",
+      "прилавка"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2559,
+    "name": "VP как завороженный",
+    "anchors": [
+      "завороженный",
+      "как"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Adjective"
+    ]
+  },
+  {
+    "record": 2565,
+    "name": "как нельзя Adj/Adv",
+    "anchors": [
+      "как",
+      "нельзя"
+    ],
+    "kind": "func",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Adverb"
+    ]
+  },
+  {
+    "record": 2579,
+    "name": "знать NP-Acc как свои пять пальцев",
+    "anchors": [
+      "знать",
+      "как",
+      "пальцев",
+      "пять",
+      "свои"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Pronoun",
+      "Numeral",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2620,
+    "name": "VP кто во что горазд",
+    "anchors": [
+      "во",
+      "горазд",
+      "кто",
+      "что"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Preposition",
+      "Adjective"
+    ]
+  },
+  {
+    "record": 2623,
+    "name": "VP куда глаза глядят",
+    "anchors": [
+      "глаза",
+      "глядят",
+      "куда"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Noun",
+      "Verb"
+    ]
+  },
+  {
+    "record": 2629,
+    "name": "VP-Inf/NP-Nom любой ценой",
+    "anchors": [
+      "любой",
+      "ценой"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2640,
+    "name": "VP на (свежем) воздухе",
+    "anchors": [
+      "воздухе",
+      "на",
+      "свежем"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2650,
+    "name": "XP на всех и (на) вся",
+    "anchors": [
+      "всех",
+      "вся",
+      "и",
+      "на"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 2658,
+    "name": "VP на голом месте",
+    "anchors": [
+      "голом",
+      "месте",
+      "на"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2659,
+    "name": "VP на голом энтузиазме",
+    "anchors": [
+      "голом",
+      "на",
+      "энтузиазме"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2665,
+    "name": "VP на едином/одном дыхании",
+    "anchors": [
+      "дыхании",
+      "едином",
+      "на",
+      "одном"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2667,
+    "name": "VP/NP-Nom Cop на загляденье/заглядение (NP-Dat)",
+    "anchors": [
+      "заглядение",
+      "загляденье",
+      "на"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction; Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2704,
+    "name": "VP на первый случай",
+    "anchors": [
+      "на",
+      "первый",
+      "случай"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction; Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2719,
+    "name": "VP/NP-Nom Cop на пороге NP-Gen",
+    "anchors": [
+      "на",
+      "пороге"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction; Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2729,
+    "name": "VP/NP-Nom Cop на руку NP-Gen",
+    "anchors": [
+      "на",
+      "руку"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction; Copula Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2776,
+    "name": "VP от греха (подальше)",
+    "anchors": [
+      "греха",
+      "от",
+      "подальше"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2787,
+    "name": "VP от слова до слова",
+    "anchors": [
+      "до",
+      "от",
+      "слова"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2807,
+    "name": "VP/NP по гроб (жизни)",
+    "anchors": [
+      "гроб",
+      "жизни",
+      "по"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2842,
+    "name": "VP/NP по росту",
+    "anchors": [
+      "по",
+      "росту"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2854,
+    "name": "VP по уму",
+    "anchors": [
+      "по",
+      "уму"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2896,
+    "name": "VP с протянутой рукой",
+    "anchors": [
+      "протянутой",
+      "рукой",
+      "с"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2898,
+    "name": "VP/NP с птичьего полёта",
+    "anchors": [
+      "полета",
+      "птичьего",
+      "с"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2951,
+    "name": "Cl, (а)/NP-Nom NP-Dat Cop хоть бы хны/что",
+    "anchors": [
+      "а",
+      "бы",
+      "хны",
+      "хоть",
+      "что"
+    ],
+    "kind": "func",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Particle",
+      "Interjection",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 2968,
+    "name": "VP чуть свет",
+    "anchors": [
+      "свет",
+      "чуть"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2981,
+    "name": "красной нитью VP-Imp NP",
+    "anchors": [
+      "красной",
+      "нитью"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adjective",
+      "Noun"
+    ]
+  },
+  {
+    "record": 2988,
+    "name": "NumCrd от роду",
+    "anchors": [
+      "от",
+      "роду"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3020,
+    "name": "VP в обгон (NP-Gen)",
+    "anchors": [
+      "в",
+      "обгон"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3044,
+    "name": "VP на чём свет стоит",
+    "anchors": [
+      "на",
+      "свет",
+      "стоит",
+      "чем"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Pronoun",
+      "Noun",
+      "Verb"
+    ]
+  },
+  {
+    "record": 3097,
+    "name": "NP-Nom Cop будь здоров/VP будь здоров",
+    "anchors": [
+      "будь",
+      "здоров"
+    ],
+    "kind": "content",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3114,
+    "name": "NP (и NP) в одном флаконе",
+    "anchors": [
+      "в",
+      "и",
+      "одном",
+      "флаконе"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3115,
+    "name": "NP-Nom передать NP-Acc в руки NP-Dat/NP-Gen",
+    "anchors": [
+      "в",
+      "передать",
+      "руки"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3124,
+    "name": "NP-Nom взяться за ум",
+    "anchors": [
+      "взяться",
+      "за",
+      "ум"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3133,
+    "name": "VP как резаный",
+    "anchors": [
+      "как",
+      "резаный"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3137,
+    "name": "врагу не пожелать-Prs.2.Sg NP-Acc/VP-Inf",
+    "anchors": [
+      "врагу",
+      "не",
+      "пожелать"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3160,
+    "name": "дай Бог (PronPers-Dat) VP-Inf",
+    "anchors": [
+      "бог",
+      "дай"
+    ],
+    "kind": "content",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3161,
+    "name": "NP-Nom дать NP-Dat сто очков вперёд (по NP-Dat)",
+    "anchors": [
+      "вперед",
+      "дать",
+      "очков",
+      "по",
+      "сто"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3165,
+    "name": "VP для галочки",
+    "anchors": [
+      "галочки",
+      "для"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3176,
+    "name": "Cl  — и вот тебе XP.",
+    "anchors": [
+      "вот",
+      "и",
+      "тебе"
+    ],
+    "kind": "func",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3186,
+    "name": "NP-Nom иметь (свои) виды на NP-Acc",
+    "anchors": [
+      "виды",
+      "иметь",
+      "на",
+      "свои"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3206,
+    "name": "NP-Gen Cop кот наплакал",
+    "anchors": [
+      "кот",
+      "наплакал"
+    ],
+    "kind": "content",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3286,
+    "name": "VP одной левой",
+    "anchors": [
+      "левой",
+      "одной"
+    ],
+    "kind": "content",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3291,
+    "name": "NP от бога",
+    "anchors": [
+      "бога",
+      "от"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3297,
+    "name": "VP от пуза",
+    "anchors": [
+      "от",
+      "пуза"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3313,
+    "name": "VP по жизни",
+    "anchors": [
+      "жизни",
+      "по"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3330,
+    "name": "показать, где раки зимуют NP-Dat",
+    "anchors": [
+      "где",
+      "зимуют",
+      "показать",
+      "раки"
+    ],
+    "kind": "content",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3353,
+    "name": "VP с ведома NP-Gen",
+    "anchors": [
+      "ведома",
+      "с"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3358,
+    "name": "NumCrd с лишком NP-Gen",
+    "anchors": [
+      "лишком",
+      "с"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3369,
+    "name": "VP/NP сквозь/через призму NP-Gen",
+    "anchors": [
+      "призму",
+      "сквозь",
+      "через"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3379,
+    "name": "NP-Nom спать и видеть, как Cl",
+    "anchors": [
+      "видеть",
+      "и",
+      "как",
+      "спать"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3380,
+    "name": "NP средней руки",
+    "anchors": [
+      "руки",
+      "средней"
+    ],
+    "kind": "content",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3385,
+    "name": "NP-Nom сходить с ума по NP-Dat",
+    "anchors": [
+      "по",
+      "с",
+      "сходить",
+      "ума"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3389,
+    "name": "тьма(-)тьмущая NP-Gen Cop / NP-Gen",
+    "anchors": [
+      "тьма",
+      "тьмущая"
+    ],
+    "kind": "content",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3394,
+    "name": "NP-Nom хвататься за NP-Acc (от N-Gen)",
+    "anchors": [
+      "за",
+      "от",
+      "хвататься"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3403,
+    "name": "чёрт знает/чёрт-те сколько NP-Gen (Adv/у NP-Gen)",
+    "anchors": [
+      "знает",
+      "сколько",
+      "у",
+      "черт",
+      "черт-те"
+    ],
+    "kind": "mixed",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3404,
+    "name": "шутка сказать, Cl",
+    "anchors": [
+      "сказать",
+      "шутка"
+    ],
+    "kind": "content",
+    "syn": "unknown",
+    "declared_anchor_pos": [
+      null
+    ]
+  },
+  {
+    "record": 3444,
+    "name": "NP-Nom выставить/выставлять NP-Acc NP-Ins",
+    "anchors": [
+      "выставить",
+      "выставлять"
+    ],
+    "kind": "content",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 3450,
+    "name": "проще говоря/сказать, ХP/Cl",
+    "anchors": [
+      "говоря",
+      "проще",
+      "сказать",
+      "х"
+    ],
+    "kind": "content",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Converb/Verb"
+    ]
+  },
+  {
+    "record": 3469,
+    "name": "пропасть-Imp/провалиться-Imp PronPers-Nom/NP-Nom пропадом",
+    "anchors": [
+      "провалиться",
+      "пропадом",
+      "пропасть"
+    ],
+    "kind": "content",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Verb",
+      "Adverb"
+    ]
+  },
+  {
+    "record": 3473,
+    "name": "VP/NP от рук(и) NP-Gen",
+    "anchors": [
+      "и",
+      "от",
+      "рук"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3478,
+    "name": "нет уж, Cl",
+    "anchors": [
+      "нет",
+      "уж"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Particle",
+      "Particle"
+    ]
+  },
+  {
+    "record": 3480,
+    "name": "NP-Dat/PronPers-Dat всё было мало",
+    "anchors": [
+      "было",
+      "все",
+      "мало"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Verb",
+      "Adverb"
+    ]
+  },
+  {
+    "record": 3518,
+    "name": "NP-Nom думать про свое/о своем",
+    "anchors": [
+      "думать",
+      "о",
+      "про",
+      "свое",
+      "своем"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Preposition",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 3534,
+    "name": "Cl, дать-Imp (только) срок!",
+    "anchors": [
+      "дать",
+      "срок",
+      "только"
+    ],
+    "kind": "content",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3558,
+    "name": "что XP, то ~XP",
+    "anchors": [
+      "то",
+      "что"
+    ],
+    "kind": "func",
+    "syn": "Biclausal Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 3573,
+    "name": "спасти NP-Acc от верный-Gen NP-Gen",
+    "anchors": [
+      "верный",
+      "от",
+      "спасти"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Verb",
+      "Preposition",
+      "Adjective"
+    ]
+  },
+  {
+    "record": 3607,
+    "name": "NP-Nom сразу VP-Fut",
+    "anchors": [
+      "сразу"
+    ],
+    "kind": "content",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 3615,
+    "name": "NP/VP под командованием NP-Gen",
+    "anchors": [
+      "командованием",
+      "под"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3618,
+    "name": "VP под (Adj-Ins) углом/ углом (в) NumCrd-Acc градус-Gen",
+    "anchors": [
+      "в",
+      "градус",
+      "под",
+      "углом"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3628,
+    "name": "NP-Nom/Pronpers-Nom (Adv/PrepP-Loc) Cop только NP",
+    "anchors": [
+      "только"
+    ],
+    "kind": "content",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Particle"
+    ]
+  },
+  {
+    "record": 3652,
+    "name": "NP-Nom (сам) на себя Cop не похож",
+    "anchors": [
+      "на",
+      "не",
+      "похож",
+      "сам",
+      "себя"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Negation Marker",
+      "Pronoun",
+      "Adjective",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 3664,
+    "name": "это NP здорово Verb",
+    "anchors": [
+      "здорово",
+      "это"
+    ],
+    "kind": "func",
+    "syn": "Clause and Modifier Construction",
+    "declared_anchor_pos": [
+      "Pronoun",
+      "Adverb"
+    ]
+  },
+  {
+    "record": 3666,
+    "name": "NP-Nom NP-Dat задаст",
+    "anchors": [
+      "задаст"
+    ],
+    "kind": "content",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 3678,
+    "name": "NP-Nom/PronPers-Nom NP-Dat/PronPers-Dat говорить, чтобы Cl",
+    "anchors": [
+      "говорить",
+      "чтобы"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Coordinator"
+    ]
+  },
+  {
+    "record": 3679,
+    "name": "авось Cl",
+    "anchors": [
+      "авось"
+    ],
+    "kind": "func",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Particle"
+    ]
+  },
+  {
+    "record": 3685,
+    "name": "один NP VP",
+    "anchors": [
+      "один"
+    ],
+    "kind": "content",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Numeral"
+    ]
+  },
+  {
+    "record": 3694,
+    "name": "Pron-Dat параллельно на NP-Acc",
+    "anchors": [
+      "на",
+      "параллельно"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Predicative",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 3698,
+    "name": "Слышь (ты), Cl",
+    "anchors": [
+      "слышь",
+      "ты"
+    ],
+    "kind": "func",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Verb",
+      "Pronoun"
+    ]
+  },
+  {
+    "record": 3714,
+    "name": "VP на лету",
+    "anchors": [
+      "лету",
+      "на"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3728,
+    "name": "избави/избавь (PronPers) Бог/Боже/Господи от NP-Gen/Conj Cl/VP-Inf",
+    "anchors": [
+      "бог",
+      "боже",
+      "господи",
+      "избави",
+      "избавь",
+      "от"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 3730,
+    "name": "NP-Nom на ~NP-Loc (сидит) и ~NP-Ins/~NP-Gen погоняет",
+    "anchors": [
+      "и",
+      "на",
+      "погоняет",
+      "сидит"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Verb",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 3762,
+    "name": "VP с головой",
+    "anchors": [
+      "головой",
+      "с"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3772,
+    "name": "NP-Acc голыми руками не возьмёшь",
+    "anchors": [
+      "возьмешь",
+      "голыми",
+      "не",
+      "руками"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun",
+      "Negation Marker",
+      "Adjective"
+    ]
+  },
+  {
+    "record": 3781,
+    "name": "NP/VP на честном слове",
+    "anchors": [
+      "на",
+      "слове",
+      "честном"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun",
+      "Adjective"
+    ]
+  },
+  {
+    "record": 3792,
+    "name": "NP-Nom жить припеваючи",
+    "anchors": [
+      "жить",
+      "припеваючи"
+    ],
+    "kind": "content",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Verb",
+      "Converb"
+    ]
+  },
+  {
+    "record": 3809,
+    "name": "(носом) землю рыть, но/чтобы VP",
+    "anchors": [
+      "землю",
+      "но",
+      "носом",
+      "рыть",
+      "чтобы"
+    ],
+    "kind": "mixed",
+    "syn": "Matrix and Sentential Complement Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun",
+      "Conjunction"
+    ]
+  },
+  {
+    "record": 3822,
+    "name": "в одном/общем котле вариться (с NP-Ins)",
+    "anchors": [
+      "в",
+      "вариться",
+      "котле",
+      "общем",
+      "одном",
+      "с"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Numeral",
+      "Noun",
+      "Verb"
+    ]
+  },
+  {
+    "record": 3854,
+    "name": "батарея NP-Gen",
+    "anchors": [
+      "батарея"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun"
+    ]
+  },
+  {
+    "record": 3859,
+    "name": "галерея NP-Gen",
+    "anchors": [
+      "галерея"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun"
+    ]
+  },
+  {
+    "record": 3864,
+    "name": "лес NP-Gen",
+    "anchors": [
+      "лес"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun"
+    ]
+  },
+  {
+    "record": 3881,
+    "name": "кучка NP-Gen",
+    "anchors": [
+      "кучка"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Noun"
+    ]
+  },
+  {
+    "record": 3916,
+    "name": "считанные NP-Pl",
+    "anchors": [
+      "считанные"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adjective"
+    ]
+  },
+  {
+    "record": 3918,
+    "name": "(ну) как сказать, XP",
+    "anchors": [
+      "как",
+      "ну",
+      "сказать"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Particle",
+      "Pronoun",
+      "Verb"
+    ]
+  },
+  {
+    "record": 3937,
+    "name": "держать путь на NP-Aсc",
+    "anchors": [
+      "держать",
+      "на",
+      "путь",
+      "с"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 3938,
+    "name": "держать NP-Acc на отлёте",
+    "anchors": [
+      "держать",
+      "на",
+      "отлете"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3941,
+    "name": "NP-Nom взять верх (над NP-Ins) (в NP-Loc)",
+    "anchors": [
+      "в",
+      "верх",
+      "взять",
+      "над"
+    ],
+    "kind": "mixed",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb",
+      "Noun",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 3948,
+    "name": "Cl, и точка",
+    "anchors": [
+      "и",
+      "точка"
+    ],
+    "kind": "mixed",
+    "syn": "Clause or XP with parentheticals",
+    "declared_anchor_pos": [
+      "Conjunction",
+      "Noun"
+    ]
+  },
+  {
+    "record": 3955,
+    "name": "Ну его нафиг, Cl",
+    "anchors": [
+      "его",
+      "нафиг",
+      "ну"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Particle",
+      "Pronoun",
+      "Adverb"
+    ]
+  },
+  {
+    "record": 3963,
+    "name": "дать NP-Acc",
+    "anchors": [
+      "дать"
+    ],
+    "kind": "content",
+    "syn": "Predicate Argument Construction",
+    "declared_anchor_pos": [
+      "Verb"
+    ]
+  },
+  {
+    "record": 3972,
+    "name": "страшно XP",
+    "anchors": [
+      "страшно"
+    ],
+    "kind": "content",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 4028,
+    "name": "NP Cop лишен оснований",
+    "anchors": [
+      "лишен",
+      "оснований"
+    ],
+    "kind": "content",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Participle",
+      "Noun"
+    ]
+  },
+  {
+    "record": 4029,
+    "name": "NP по-своему Adj-short",
+    "anchors": [
+      "по-своему"
+    ],
+    "kind": "content",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Adverb"
+    ]
+  },
+  {
+    "record": 4046,
+    "name": "NP-Dat  (глубоко) фиолетово на NP-Acc/Cl",
+    "anchors": [
+      "глубоко",
+      "на",
+      "фиолетово"
+    ],
+    "kind": "mixed",
+    "syn": "Clause",
+    "declared_anchor_pos": [
+      "Adverb",
+      "Preposition"
+    ]
+  },
+  {
+    "record": 4071,
+    "name": "XP/«XP» в кавычках",
+    "anchors": [
+      "в",
+      "кавычках"
+    ],
+    "kind": "mixed",
+    "syn": "Head and Modifier Construction",
+    "declared_anchor_pos": [
+      "Preposition",
+      "Noun"
+    ]
+  },
+  {
+    "record": 4076,
+    "name": "Ни бельмеса не Verb в NP-Prep/по-Adj-cки",
+    "anchors": [
+      "бельмеса",
+      "в",
+      "ки",
+      "не",
+      "ни",
+      "по"
+    ],
+    "kind": "mixed",
+    "syn": "Copula Construction",
+    "declared_anchor_pos": [
+      "Negation Marker",
+      "Noun",
+      "Negation Marker",
+      "Verb"
+    ]
+  }
+]

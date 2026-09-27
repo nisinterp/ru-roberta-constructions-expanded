@@ -1,7 +1,7 @@
 {
   "seed": 20260926,
   "max_per_sentence": 2,
-  "sentences": 978,
-  "candidate_words": 7549,
-  "selected_words": 1888
+  "sentences": 12289,
+  "candidate_words": 91347,
+  "selected_words": 23755
 }

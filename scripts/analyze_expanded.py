@@ -1,6 +1,7 @@
 """Cluster-aware accuracy, POS, and matched-form analyses; original metrics too."""
 
 import json
+import hashlib
 from pathlib import Path
 import sys
 
@@ -25,6 +26,10 @@ def require_complete(dataset, input_name):
     """Never publish estimates from an interrupted scoring run."""
     from score_expanded import item_key
 
+    metadata = RES / f"affinity_{dataset}.metadata.json"
+    expected_hash = hashlib.sha256((ROOT / "data" / input_name).read_bytes()).hexdigest()
+    if not metadata.exists() or json.loads(metadata.read_text())["input_sha256"] != expected_hash:
+        raise ValueError(f"{dataset} score provenance does not match the current input")
     expected = {
         item_key(json.loads(s))
         for s in (ROOT / "data" / input_name).read_text().splitlines()
@@ -99,6 +104,10 @@ def pos_model(df, formula, cluster):
 
 def main():
     TABLES.mkdir(exist_ok=True)
+    collection = json.loads((RES / "rnc_collection.json").read_text())
+    input_hash = hashlib.sha256((ROOT / "data/items.jsonl").read_bytes()).hexdigest()
+    if collection["source"] != "RNC_live_API" or collection["input_sha256"] != input_hash:
+        raise ValueError("Collect a complete live RNC baseline for the current inventory first")
     require_complete("constructicon", "items.jsonl")
     require_complete("rnc", "rnc_items.jsonl")
     con = pd.read_json(RES / "affinity_constructicon.jsonl", lines=True)
@@ -112,6 +121,7 @@ def main():
     for df in (con, rnc):
         df["pos_class"] = np.where(df.pos.isin(original.FUNC_POS), "func", "content")
     summary = {
+        "rnc_collection": {k: v for k, v in collection.items() if k != "forms"},
         "counts": dict(
             constructions=int(con.record.nunique()),
             examples=int(con[["record", "example_idx"]].drop_duplicates().shape[0]),
