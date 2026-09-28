@@ -101,6 +101,23 @@ Collection reuses completed per-form caches. Scoring reuses completed batches an
 
 If a process was killed while writing its final JSONL row, back up the output and remove only that incomplete final row before resuming. Never remove complete rows or an exclusion file to bypass validation.
 
+## Continue RNC scoring on a Colab GPU
+
+Open [the Colab notebook](https://colab.research.google.com/github/nisinterp/ru-roberta-constructions-expanded/blob/full-inventory-rnc-study/notebooks/score_rnc_colab.ipynb). Select a GPU runtime and follow its numbered cells.
+
+On the machine running the CPU experiment, `scripts/export_colab.py` creates `data/colab_transfer.zip` containing only unfinished RNC targets, CPU reference predictions, and the required scoring code. Upload this bundle through the notebook. It contains corpus sentences and is intentionally ignored by Git. No RNC credential is included or needed.
+
+The notebook downloads the exact model revision, verifies its file hashes, and keeps float32 scoring. It checks CPU/GPU agreement and benchmarks short and long remaining contexts before the full run. It saves completed batches to Google Drive. Do not install the CPU-only requirements lockfile in Colab.
+
+CPU work can continue while Colab is prepared. Return the completed GPU result ZIP for validation. Before merging, stop the local scorer and study runner, extract the result ZIP, and run:
+
+```bash
+.venv/bin/python scripts/import_colab.py /path/to/extracted/results
+.venv/bin/python scripts/run_study.py --resume
+```
+
+The importer preserves CPU results, validates duplicate predictions, adds only missing targets, and checks final coverage. It refuses to merge while this checkout's CPU scorer or runner is active. CUDA execution cannot be tested on the CPU-only development machine; the notebook's real-GPU validation is required before accepting its results.
+
 ## Individual steps
 
 These commands are also useful for inspecting or debugging one stage:

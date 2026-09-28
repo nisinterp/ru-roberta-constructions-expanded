@@ -16,3 +16,6 @@ data/outside_items.jsonl
 .venv
 
 results/.run.lock
+
+data/colab_transfer/
+data/colab_transfer.zip
