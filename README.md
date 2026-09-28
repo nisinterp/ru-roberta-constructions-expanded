@@ -29,7 +29,7 @@ A report is built only from complete target coverage. A successful run is marked
 
 The two Constructicon sources mostly contain the same examples. We join their annotations instead of counting them as separate data. All eligible examples are selected before model predictions are inspected. Source revisions and file hashes are recorded in `sources/manifest.json`.
 
-The prepared inventory contains **3,754 anchor forms** eligible for RNC queries. The collector searches each form and keeps up to **50 usable contexts**, using at most three result pages. Some forms may have fewer or no controls. `results/rnc_collection.json` records requested forms, retained counts, and exclusions, including zero-coverage forms. The old 27-form baseline is not used for the new conclusions.
+The prepared inventory contains **3,754 anchor forms** eligible for RNC queries. The collector searches each form and keeps up to **50 usable contexts**, using at most three result pages. Some forms may have fewer or no controls. `results/rnc_collection.json` records requested forms, retained counts, and exclusions, including zero-coverage forms. Incomplete API snippets with missing text are rejected in full; per-form parser exclusion counts are saved with the cache and in the collection audit. The old 27-form baseline is not used for the new conclusions.
 
 RNC controls are ordinary corpus contexts selected by word identity. They are **not a random sample of all Russian sentences**. A filter removes recognizable combinations of construction anchors, but cannot guarantee that every retained sentence is free of constructions. This matters especially for constructions with only one anchor.
 

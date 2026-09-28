@@ -258,6 +258,10 @@ def main():
               "Known outside-span labels are removed from the primary analysis. Unmatched or ambiguous examples "
               "remain flagged; a matched-only sensitivity analysis tests their influence.")
     heading("RNC baseline", 2)
+    malformed = sum(sum(row.get("parser_exclusions", {}).values()) for row in collection.get("forms", []))
+    paragraph(f"The corpus parser excluded {malformed:,} incomplete API snippets with missing text. "
+              "These snippets were discarded in full rather than reconstructed with missing words. "
+              "Per-form counts are retained in the collection audit.")
     paragraph(f"We queried the RNC main corpus for every observed in-scope anchor form, requesting up to "
               f"{collection['per_form']} retained contexts per form and searching at most {collection['max_pages']} "
               "pages. The retrieval cache supports resumption. Wrong-form hits, duplicate sentences, overlaps with "

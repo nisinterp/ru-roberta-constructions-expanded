@@ -21,6 +21,18 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "upstream"))
 import fetch_rnc as api
 
+ORIGINAL_SNIPPET_PARSER = api.snippet_to_sentence
+PARSER_EXCLUSIONS = Counter()
+
+
+def parse_snippet(snippet):
+    """Reject incomplete API snippets instead of inventing missing sentence text."""
+    words = [word for sequence in snippet["sequences"] for word in sequence["words"]]
+    if any(not isinstance(word.get("text"), str) for word in words):
+        PARSER_EXCLUSIONS["snippet_missing_text"] += 1
+        return None
+    return ORIGINAL_SNIPPET_PARSER(snippet)
+
 
 def load_token():
     """Read the credential without printing or copying it into experiment outputs."""
@@ -85,12 +97,19 @@ def main():
     api.CACHE_DIR = ROOT / f"data/raw/rnc_live_{args.per_form}_{args.max_pages}"
     api.CACHE_DIR.mkdir(parents=True, exist_ok=True)
     api.TARGET_PER_FORM, api.MAX_PAGES = args.per_form, args.max_pages
+    api.snippet_to_sentence = parse_snippet
     session = requests.Session()
     session.headers["Authorization"] = f"Bearer {token}"
     output, coverage, seen = [], [], set()
     for index, form in enumerate(forms, 1):
         # Stop on a failed request. Never publish an apparently complete partial baseline.
+        PARSER_EXCLUSIONS.clear()
         rows = api.fetch_form(session, form)
+        # Keep exclusion counts alongside the cache so resuming preserves this audit.
+        parse_audit = api.CACHE_DIR / f"{form}.audit.json"
+        if not parse_audit.exists():
+            parse_audit.write_text(json.dumps(dict(PARSER_EXCLUSIONS)))
+        parse_exclusions = json.loads(parse_audit.read_text())
         sets = [record_keys[r] - form_keys[form, r] for r in form_records[form]]
         kept, rejected = filter_rows(rows, form, sets, sentences, seen)
         kept = kept[:args.per_form]
@@ -102,7 +121,8 @@ def main():
                            "sentence_id": hashlib.sha256(sentence_key(sentence).encode()).hexdigest()[:20],
                            "filter_applicable": bool(sets) and all(bool(s) for s in sets),
                            "source": "RNC_live_API", "records": sorted(form_records[form])})
-        coverage.append(dict(form=form, fetched=len(rows), retained=len(kept), exclusions=dict(rejected)))
+        coverage.append(dict(form=form, fetched=len(rows), retained=len(kept), exclusions=dict(rejected),
+                             parser_exclusions=parse_exclusions))
         print(f"{index}/{len(forms)} forms; {len(output)} retained targets", flush=True)
     audit = dict(source="RNC_live_API", completed_utc=datetime.now(timezone.utc).isoformat(),
                  input_sha256=hashlib.sha256(items_path.read_bytes()).hexdigest(),

@@ -29,3 +29,26 @@ def test_single_anchor_is_not_automatically_rejected():
     kept, rejected = filter_rows(examples, "знает", [set()], set(), set())
     assert len(kept) == 1
     assert not rejected
+
+
+def test_incomplete_snippet_is_rejected_without_fabricating_text():
+    from collect_rnc import parse_snippet, PARSER_EXCLUSIONS
+    snippet = {"sequences": [{"words": [
+        {"type": "WORD", "source": {"sentId": 1}, "displayParams": {"hit": True}}
+    ]}]}
+    PARSER_EXCLUSIONS.clear()
+    assert parse_snippet(snippet) is None
+    assert PARSER_EXCLUSIONS["snippet_missing_text"] == 1
+
+
+def test_complete_snippet_keeps_exact_target_offsets():
+    from collect_rnc import parse_snippet
+    snippet = {"sequences": [{"words": [
+        {"type": "WORD", "text": "Он", "source": {"sentId": 1}},
+        {"type": "SPACE", "text": " "},
+        {"type": "WORD", "text": "знает", "source": {"sentId": 1}, "displayParams": {"hit": True}},
+        {"type": "PUNCT", "text": "."}
+    ]}]}
+    sentence, start, end, _ = parse_snippet(snippet)
+    assert sentence == "Он знает."
+    assert sentence[start:end] == "знает"
