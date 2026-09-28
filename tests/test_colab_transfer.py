@@ -48,3 +48,20 @@ def test_notebook_code_cells_compile():
     for cell in notebook['cells']:
         if cell['cell_type'] == 'code':
             compile(''.join(cell['source']), 'colab-cell', 'exec')
+
+
+def test_model_manifest_excludes_local_metadata():
+    from colab_io import model_artifacts
+    names = ['config.json', 'merges.txt', 'vocab.json', 'pytorch_model.bin', 'metadata.json']
+    entries = [{'path': 'data/raw/model/' + name} for name in names]
+    chosen = model_artifacts(entries)
+    assert len(chosen) == 4
+    assert all(not row['path'].endswith('metadata.json') for row in chosen)
+    with pytest.raises(ValueError):
+        model_artifacts(entries[1:])
+
+
+def test_legacy_bundle_metadata_snapshot_matches_its_checksum():
+    from colab_io import digest
+    path = Path(__file__).resolve().parents[1] / 'sources/ruRoberta-model-metadata.json'
+    assert digest(path) == '897f4558eafedd6e4b300425871c2605efb494d580c1fea77321f778d9f3de48'

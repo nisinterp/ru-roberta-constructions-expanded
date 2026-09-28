@@ -35,3 +35,13 @@ def check_prediction(reference, candidate):
         a, b = reference.get(name), candidate.get(name)
         if (a is None) != (b is None) or (a is not None and not math.isclose(a, b, abs_tol=2e-5, rel_tol=5e-4)):
             raise ValueError(f'CPU/GPU probability mismatch in {name} for target {key(reference)}')
+
+
+def model_artifacts(entries):
+    """Select checkpoint/tokenizer files, excluding downloaded Hub API metadata."""
+    required = {'config.json', 'merges.txt', 'vocab.json', 'pytorch_model.bin'}
+    files = [entry for entry in entries
+             if entry['path'] in {f'data/raw/model/{name}' for name in required}]
+    if len(files) != len(required) or {Path(entry['path']).name for entry in files} != required:
+        raise ValueError('Manifest must contain each required model artifact exactly once')
+    return files

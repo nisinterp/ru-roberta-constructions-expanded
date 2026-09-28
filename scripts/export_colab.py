@@ -7,7 +7,7 @@ import shutil
 import zipfile
 
 from transformers import AutoTokenizer
-from colab_io import digest, key, read_complete_rows
+from colab_io import digest, key, read_complete_rows, model_artifacts
 from score_expanded import ROOT, token_span_for_word
 
 
@@ -49,7 +49,7 @@ def main():
                 input_sha256=digest(ROOT / 'data/rnc_items.jsonl'),
                 scorer_sha256=digest(ROOT / 'scripts/score_expanded.py'), model_revision=manifest['model_revision'],
                 pending_sha256=digest(folder / 'pending.jsonl'), reference_sha256=digest(folder / 'reference.jsonl'),
-                model_files=[r for r in manifest['files'] if r['path'].startswith('data/raw/model/')])
+                model_files=model_artifacts(manifest['files']))
     for relative in ('scripts/score_expanded.py', 'scripts/score_colab.py', 'scripts/colab_io.py', 'upstream/affinity.py'):
         destination = folder / relative
         destination.parent.mkdir(exist_ok=True)
