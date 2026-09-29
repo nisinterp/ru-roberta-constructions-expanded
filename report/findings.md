@@ -1,219 +1,153 @@
-Expanded reproduction of nisinterp/ru-constructions-revealed • 26 September 2026
+# Fixed words are easier to recover than variable words in Russian constructions
 
-## Findings
+A full-inventory ruRoberta-large study with a partially scored corpus baseline. Preprint, 29 September 2026. Final analysis of the saved cutoff at 2026-09-28T20:47:25.005072+00:00. Not peer reviewed.
 
-On 300 constructions, anchors were recovered exactly in 74.2% of trials, compared with 49.9% for slot fillers. The average within-construction advantage was +20.1 percentage points (95% CI [16.0, 24.2]); 217 of 297 paired constructions favored anchors, with 11 ties.
+## 1. Abstract
 
-Anchor recovery varies with part of speech. A joint test of POS terms after adjustment for token length, sentence length, word length and sample frequency gave p=3.58e-05. The adjusted anchor-versus-filler association was +9.7 percentage points (95% CI [6.3, 13.1]). These are observational associations, not proof that POS causes recovery differences.
+We test whether a Russian masked language model predicts fixed construction words (anchors) more accurately than variable words (fillers). We examine all 4,001 Russian Constructicon entries; 3,843 are represented after preparation. The primary analysis contains 35,742 anchors and 48,655 fillers. Exact recovery is 76.2% for anchors and 50.7% for fillers. The mean within-construction difference is +24.2 percentage points (95% confidence interval [23.1, 25.3]). The difference remains positive after adjustment for measured word properties. However, fillers have no clear advantage over outside-span words matched by sentence and part of speech. A same-form corpus comparison also favors anchors, but only 30.8% of eligible corpus targets were scored, with short sentences processed first. The study supports a broad Russian lexical predictability pattern. It does not establish accurate prediction of complete argument combinations or universal construction knowledge.
 
-For 27 matched word forms in cached RNC controls, the mean inside-minus-outside accuracy difference was +11.5 percentage points (95% CI [1.1, 21.5]). The stricter co-anchor subset has only five forms and an interval spanning zero. Within-sentence POS matching supports an anchor advantage, but not an advantage for all inside words pooled together.
+## 2. Related literature
 
-## Which data sources should be used?
+Rozner et al. [1] use pretrained language-model distributions to investigate constructions. Their global affinity concerns the probability of a word given its sentence context. Local affinity compares prediction distributions before and after masking additional context. Their English experiments include fixed lexical material, idioms, and schematic constructions. Their section 5.1 uses six English construction types with about 50 examples each and single-token targets. We adapt the global measurement to Russian and add lexical-role and corpus-control comparisons.
 
-Use the sources in conjunction: the official Constructicon YAML supplies construction descriptions and slot annotations; the Hugging Face derivative supplies whole-construction boundaries; RNC sentences supply same-word controls. Do not concatenate Constructicon and Hugging Face examples as independent observations: their content overlaps heavily.
+RoBERTa [2] is a bidirectional Transformer encoder trained to recover masked tokens. It uses context on both sides of a missing word. The Russian model family described by Zmitrovich et al. [3] provides the ruRoberta-large checkpoint used here. The Russian Constructicon [4] is a curated resource of constructions and examples; its entries are not a frequency-weighted corpus sample.
 
-| Dataset size | Original repository | Expanded experiment |
+Salazar et al. [5] describe masked-model pseudo-log-likelihood scoring. Kauf and Ivanova [6] show why visible pieces of the same word can inflate scores, and propose within-word left-to-right masking. Our multi-token measure follows this masking principle: later pieces remain hidden while earlier gold pieces are restored. We score individual words, not whole-sentence pseudo-log-likelihood. Exact recovery and top-five recovery complement probability scores because high probability and correct first choice are different outcomes.
+
+## 3. Methodology and key hypotheses
+
+The purpose is to test whether constructional context is associated with lexical predictability. Anchors are fixed lexical material identified by the existing parser. Fillers are words aligned to variable slots; a filler word is not necessarily an entire semantic argument. H1: anchors are easier to recover than fillers. H2: an anchor advantage remains after adjustment for grammatical category and word properties. H3: the same anchor forms are easier to recover in construction examples than in corpus controls. H4: fillers are easier to recover than outside-span words of the same part of speech in the same sentence. These are working hypotheses, not preregistered tests; the earlier 300-construction results were already known.
+
+We parse the inventory, remove duplicate sentences, align word roles with construction boundaries, prepare controls, mask each target separately, and analyze the saved predictions. Known outside-span targets are removed from the primary construction analysis. Unmatched boundaries are flagged and checked in a matched-only sensitivity analysis. No new predictions were generated for this final analysis.
+
+For a one-token word, global affinity is P(original token | all other sentence tokens). For a word split into k tokens, chain affinity is the product, over positions j = 1 to k, of P(original token j | sentence context, original prefix, masked token j and masked later word tokens). Log-chain affinity is the sum of these log probabilities. Exact recovery requires the original token to rank first at every step. The target length is supplied. Lemma affinity sums eligible one-token vocabulary alternatives with the same lemma; it is available for anchors and RNC controls, not fillers. Local affinity was not computed.
+
+Pooled accuracy weights word occurrences. The primary paired difference first averages within each construction and role, then gives constructions equal weight. RNC comparisons average each form in each context and give matched forms equal weight. Outside-span comparisons average matched sentence or sentence–POS cells within constructions, then weight constructions equally. We use 10,000 percentile bootstrap resamples of constructions or forms (seed 20260926), two-sided Wilcoxon and sign tests, and construction-clustered standard errors for regression. The adjusted linear probability model includes role, POS, log(1 + token count), log(1 + sentence token count), character count, and log(1 + sample form frequency). POS is controlled for both anchors and fillers; automatic pymorphy3 tags use context-free analyses.
+
+Confidence intervals describe resampling uncertainty within this dataset, not uncertainty across independently trained models or correction for selection bias. POS-specific sign tests receive Holm adjustment across tested categories. Other intervals and tests are nominal exploratory comparisons; effect sizes and robustness matter more than isolated small p-values. A confidence interval containing zero is inconclusive, not proof of equivalence.
+
+## 4. Data, model architecture, and experiment
+
+| Stage or dataset | Count |
+| --- | --- |
+| Source entries examined / eligible | 4,001 / 3,844 |
+| Represented constructions / unique sentences | 3,843 / 15,897 |
+| Completed construction targets / alignment exclusions | 92,846 / 5 |
+| Primary anchors / fillers | 35,742 / 48,655 |
+| Completed outside-span controls | 23,755 |
+| RNC queried forms / forms with retained contexts | 3,754 / 3,682 |
+| RNC retained targets / scoring exclusions | 165,896 / 124 |
+| RNC scored / eligible but unscored | 50,992 / 114,780 |
+| Forms represented in scored RNC data | 3,608 |
+
+The official Constructicon snapshot [9] supplies entries and slot annotations. The Hugging Face derivative [10] supplies construction boundaries. They overlap and are joined, not counted as independent evidence. One eligible entry loses its only example during sentence deduplication. The scope audit removes 8,449 scored words outside the annotated span, leaving 84,397 primary targets in 15,895 sentences. All eligible entries were selected before scoring. No synthetic sentences were used.
+
+The unchanged ai-forever/ruRoberta-large checkpoint has 24 Transformer layers, hidden size 1,024, 16 attention heads, feed-forward size 4,096, and approximately 355 million parameters. Its pinned configuration has 50,265 vocabulary entries and 514 position embeddings. The scoring limit is 512 input tokens, including special tokens. It uses byte-level subword tokenization, evaluation mode, and float32 CPU computation. There was no fine-tuning. No Colab predictions were imported. Model revision: 5192d064ca6ac67c14c40e017ce41612e010f05f [7].
+
+RNC collection [8] finished all requested forms. It kept up to 50 contexts per form from at most three result pages, excluding wrong forms, duplicates, overlaps with Constructicon examples, incomplete snippets, and detectable co-anchor combinations. Controls can still contain constructions. Up to two words outside each eligible annotated span provide a separate sentence-matched baseline. These controls preserve sentence context but do not match word identity.
+
+At the user-requested stop, RNC scoring covered 50,992 of 165,772 eligible targets. The scorer sorted sentences by token length. Scored RNC contexts have median 13 model tokens (range 3–19). The median whitespace length is 7 words for scored contexts and 21 for unscored contexts. This is a nonrandom cutoff. The corpus comparison cannot represent the full collected baseline.
+
+## 5. Key results
+
+### 5.1. Anchors, fillers, and probability scores
+
+Anchor accuracy is 76.2% (95% interval [75.4, 77.0]); filler accuracy is 50.7% ([50.1, 51.3]). The paired difference is +24.2 points ([23.1, 25.3]), across 3,823 constructions; 2,891 favor anchors and 176 tie. Wilcoxon p = 1.75e-281. The adjusted difference is +11.0 points ([10.0, 11.9]; p = 3.94e-114.
+
+| Metric | Anchors | Fillers |
 | --- | --- | --- |
-| Constructions | 30 | 300 |
-| Example sentences | 150 | 1231 |
-| Scored anchors / fillers (before scope correction) | 261 / 536 | 2722 / 4379 |
-| Additional outside-span controls | 0 | 1888 |
+| Mean chain probability | 0.696 | 0.406 |
+| Median chain probability | 0.934 | 0.264 |
+| Mean single-token probability | 0.750 | 0.482 |
+| Single-token exact recovery (n) | 81.3% (31,962) | 58.9% (38,341) |
+| Multi-token exact recovery (n) | 32.8% (3,780) | 20.3% (10,314) |
+| Single-token top-five recovery | 94.3% | 81.9% |
 
-All reported model evaluations were executed locally with the original ruRoberta-large checkpoint. No model fine-tuning or synthetic sentences were used.
+The paired chain-probability difference is +0.277 (95% interval [0.267, 0.287]); the single-token difference is +0.279 [0.269, 0.290]. Mean log-chain scores are −1.130 for anchors and −2.573 for fillers. Mean anchor lemma affinity is 0.769 across 31,962 one-token targets. Multi-token recovery is substantially lower in both roles. Probability products also depend on token count, so single- and multi-token results are separated.
 
+![Figure 1. Anchors receive higher original-word probabilities and higher exact recovery. Left: empirical cumulative distributions of chain probability; a lower curve indicates more high-probability words. Right: exact recovery with 95% construction-bootstrap intervals.](../results/figures/main_results.png)
 
----
+### 5.2. POS and construction variation
 
-# Data choice, sampling and exclusions
+Part of speech is associated with anchor recovery after adjustment (joint Wald p = 6.78e-50). Prepositions and conjunctions are recovered more often than nouns and finite verbs. This pattern also occurs among fillers: pooled preposition recovery is 94.1% for anchors and 95.1% for fillers, compared with 65.4% and 39.1% for nouns. Thus, grammatical composition explains part of the pooled role gap.
 
-The pinned official Constructicon snapshot contains 4,001 records. Parsing retained 15,945 examples across 3,844 constructions. A uniform random sample of 300 eligible construction IDs (seed 20260926) was selected before model scoring, retaining all usable examples per selected construction. Identical normalized sentences were retained under only one construction/example owner.
+Automatically classified content-anchor constructions have very similar pooled anchor and filler accuracy (49.6% and 49.7%). Function-anchor constructions show 77.6% versus 52.7%, and mixed-anchor constructions show 79.8% versus 50.4%. These are descriptive groups, not validated semantic construction types. Boundary sensitivity changes the paired gap little: +24.0 points under the original rule and +24.2 points with matched boundaries only.
 
-This is a tenfold expansion in construction count and an 8.2-fold expansion in examples, not an evaluation of all 4,001 entries. The original 30-item sample was balanced by syntactic type and anchor class; the new random sample has a different composition. Between-study changes therefore cannot be attributed to sample size alone.
+![Figure 2. Anchor recovery differs by grammatical category. Only categories with at least 30 anchor occurrences are shown. Error bars are 95% construction-bootstrap intervals.](../results/figures/anchor_pos.png)
 
-| Source | Audit | Role in this experiment |
+### 5.3. Comparisons with ordinary words
+
+| Inside role vs outside | Difference, points (95% CI) | Constructions / Wilcoxon p |
 | --- | --- | --- |
-| Official Constructicon YAML | 4,001 records | Slot offsets; lexical anchor candidates; construction metadata |
-| Hugging Face derivative | 20,993 rows / 3,998 IDs | Brace-delimited construction spans joined by ID + normalized text |
-| Overlap | 20,637/20,993 rows (98.3%) | HF rows matching official examples or illustrations; not new independent data |
-| Cached RNC | 695 targets / 27 forms | Same-word controls after expanded-inventory co-anchor filtering |
+| anchor | +16.3 [14.3, 18.2] | 2,761 / 8.26e-54 |
+| filler | +0.6 [-1.3, 2.6] | 2,800 / 0.471 |
+| all inside | +8.2 [6.8, 9.7] | 3,384 / 1.15e-29 |
 
-All three HF splits were joined only for annotation lookup: train=15,298, validation=2,842, test=2,853. There was no fitted task model or held-out predictive training evaluation. The HF table has 20,945 unique ID/sentence pairs and includes examples plus illustrations; illustrations were not added to the scored sample because equivalent slot annotation was unavailable.
+The strongest practical distinction is between anchors and fillers. Anchors show a clear sentence–POS matched advantage. Fillers show only +0.6 points, with an interval spanning −1.3 to +2.6 points. Their chain-probability difference is likewise inconclusive: +0.003 [−0.010, +0.016], Wilcoxon p = 0.368. Without POS matching, filler accuracy is lower by 8.2 points [−9.3, −7.1]. Matching changes the compared population as well as controlling category, so the difference between these estimates is not itself a causal POS effect.
 
-Official-source exclusions: no anchor match: 509; residual markup: 73; no annotated slots: 477. Exclusion reasons follow a fixed priority and are counted per example.
+![Figure 3. Inside-minus-outside recovery differences. Intervals crossing zero do not establish an advantage. Matching by sentence and POS removes the clear filler deficit seen with sentence matching alone. Anchors retain a positive difference.](../results/figures/outside_comparisons.png)
 
-HF boundaries matched 1213 of 1231 selected examples; 18 remained unmatched. The boundary audit identified 94 anchor labels and 708 filler labels outside the annotated span. The primary analysis removes scored targets in that category; unmatched targets remain flagged, and a matched-only sensitivity analysis is reported. The source-rule analysis is preserved separately.
+The partial RNC comparison covers 3,608 forms. Equally weighted accuracy is 52.9% in construction contexts and 28.2% in scored RNC controls: +24.7 points ([23.5, 26.0]), Wilcoxon p = 4.24e-233. These rates differ from the pooled role rates because every matched form receives equal weight. The matched chain-, single-token-, and lemma-probability differences are +0.231 [0.221, 0.241], +0.257 [0.244, 0.270], and +0.268 [0.255, 0.281], respectively.
 
-The RNC controls are reused from the original repository, not newly crawled from the corpus. The original fetcher requires an RNC API token; this reproduction uses the publicly supplied cache and requires no credentials. The cached control vocabulary has not expanded with the construction inventory.
-
-
----
-
-# Pipeline and meaning of the measurements
-
-| Stage | Original method retained | Expansion / correction |
+| RNC sensitivity comparison | Forms | Accuracy difference, points (95% CI) |
 | --- | --- | --- |
-| Parse | Strip [text]Role markup and retain character offsets | Apply to full inventory, then sample 300 constructions |
-| Assign word roles | Slot overlap → filler; lexical or eligible lemma match → anchor | Extract Cyrillic anchors without grammatical tags; audit HF boundaries |
-| Mask and score | ai-forever/ruRoberta-large; single / chain / lemma affinity | Batch masked-position states; add exact top-1 and single-token top-5 recovery |
-| Analyze | Anchor/filler; POS/class/type slices; matched RNC forms; bootstrap | Cluster-aware accuracy, adjusted POS models, outside-span controls and sensitivity analyses |
+| fully scored forms | 16 | +28.1 [7.6, 50.0] |
+| same form and length bin | 3340 | +21.5 [20.1, 22.9] |
+| same form and exact token length | 2518 | +19.4 [17.6, 21.3] |
+| exclude under five tokens | 3608 | +24.7 [23.4, 26.0] |
 
-An anchor is fixed lexical material in a construction. A filler is a word overlapping an annotated variable slot. Slot labels take precedence over lexical matches. Both are roles relative to one annotated construction; a filler can itself be a function word or belong to another construction. Anchor candidates are extracted from the construction name, using the original exact-form, citation-lemma and compound matching rules.
+Requiring at least five occurrences in each context gives +25.4 points [23.6, 27.2] across 1,230 forms. Restricting to forms for which the co-anchor filter applies gives +28.0 [26.6, 29.4] across 2,946 forms. Only 16 forms have all eligible contexts scored; their sign test is inconclusive (p = 0.070), despite the positive bootstrap interval. Length matching is an exploratory check on observed overlap. It cannot recover missing long-context outcomes or remove differences in genre, sense, position, or annotation quality.
 
-The model revision is 5192d064ca6ac67c14c40e017ce41612e010f05f. Inference uses evaluation mode, float32 and the original tokenizer. Each target word is masked separately; all other words remain visible. Inputs over 512 tokens and token boundaries crossing a target word are excluded rather than truncated. One filler target was excluded for a token crossing its word boundary; no overlength exclusion occurred. There were 7,101 construction, 695 RNC and 1,888 outside-span scored targets. The run logs and exclusion files record coverage.
+![Figure 4. Scored and unscored eligible RNC targets have different sentence length distributions. Length is measured in whitespace-separated words so both groups can be audited without new model inference. Values above 80 words are pooled at 80.](../results/figures/cutoff_lengths.png)
 
-Single affinity is the softmax probability of the original token, for one-token words only. Chain affinity masks all target subtokens and multiplies their conditional probabilities while restoring the gold prefix from left to right. Lemma affinity sums eligible one-token vocabulary forms with the same pymorphy3 lemma and leading-space class; it is not full lemma-generation accuracy.
+### 5.4. Changes from the earlier Russian sample
 
-Exact recovery is 1 only if every target subtoken is the top-ranked prediction at its chain step. The all-correct event equals fixed-length left-to-right greedy recovery: if any earlier prediction is wrong, exact word recovery is already impossible. Target subtoken count is known, so this is not unrestricted text generation. Single-token top-5 is reported separately. A probability above 0.5, affinity, and exact recovery are different measures.
+Relative to the archived 300-construction experiment, pooled anchor accuracy rises from 74.2% to 76.2%, and filler accuracy from 49.9% to 50.7%. The paired role gap changes from +20.1 [16.0, 24.2] to +24.2 [23.1, 25.3] points. The adjusted gap changes from +9.7 [6.3, 13.1] to +11.0 [10.0, 11.9]. The main role conclusion is stable and more precise.
 
-Confidence intervals use 10,000 bootstrap resamples. Pooled accuracy resamples construction clusters, retaining word weighting; paired effects average anchor-minus-filler means equally across constructions with both roles. RNC comparisons weight matched forms equally and bootstrap forms. Sign tests omit ties in the extended analysis; the original analysis is retained unchanged. OLS linear-probability regressions use construction-cluster robust standard errors; their coefficients express adjusted percentage-point associations.
+The sentence–POS matched all-inside comparison now has a clearly positive interval: +8.2 [6.8, 9.7] points, compared with +2.7 [−2.8, 8.2] previously. The filler-specific comparison remains inconclusive, changing from −2.7 [−9.9, 4.4] to +0.6 [−1.3, 2.6]. The RNC gap changes from +11.5 [1.1, 21.5] across 27 forms to +24.7 [23.5, 26.0] across 3,608 forms, but the new corpus sample is incomplete and length-biased. These are descriptive changes in estimates, not tests that the estimates differ: the construction samples overlap, sentence–POS aggregation was refined to weight sentences equally within constructions, and the corpus controls have different selection rules. No result establishes that the unchanged model itself improved.
 
-POS is the first context-free pymorphy3 analysis, as in the original pipeline. Ambiguous Russian words may be tagged incorrectly. The within-form-and-POS check therefore adds little independent disambiguation. Neither POS tagging nor automatic anchor alignment is independent human gold annotation.
+## 6. Main conclusions, comparison, and limitations
 
+The Russian results support a broad association between fixed lexical material and higher contextual predictability. H1 and H2 are supported within the analyzed data. H3 is supported only for the scored RNC subset. H4 is not supported: after sentence–POS matching, fillers have no clear accuracy or probability advantage over outside-span words. The positive all-inside average must therefore not be presented as evidence that variable arguments are generally easier to predict.
 
----
+Relative to Rozner et al. [1], this is a partial methodological replication and Russian extension. It preserves global masked-word probability, but changes the language, checkpoint, inventory, and controls, and includes multi-token words. It does not reproduce local-affinity interventions, the full set of English contrasts, or the schematic-slot analyses. Agreement on lexical predictability therefore does not establish generalization of every original result across languages or construction types.
 
-# Replication of affinity and word recovery
+Practical use is currently limited to scoring or ranking candidate words in supplied contexts. The pipeline recovers about half of filler word occurrences exactly; top-five recovery is higher for single-token fillers, but does not validate every alternative. Whole slots, multiple arguments, semantic appropriateness, and free generation were not evaluated. The visible gold sentence and known target length make the task easier than predicting an entire argument combination. High-accuracy argument generation is an open research goal.
 
-| Metric | Original medians A/F | Expanded source-rule medians A/F | Expanded Cliff δ | Paired mean Δ |
-| --- | --- | --- | --- | --- |
-| p_single | 0.954 / 0.440 | 0.954 / 0.427 | 0.406 | 0.254 |
-| p_chain | 0.884 / 0.240 | 0.917 / 0.274 | 0.404 | 0.243 |
+The main limitations are nonrandom RNC stopping; automatic role and context-free POS labels; curated examples and unequal numbers of examples per construction; imperfect negative controls; one model and language; and unknown training-data overlap. Sample frequency is not training frequency. Bootstrap clusters do not fully model shared documents or vocabulary across constructions. No local-affinity ablation, calibration study, human acceptability evaluation, or independent full annotation audit was performed. Very small p-values do not remove these limits.
 
-The table reproduces the original probability analysis using its uncorrected span rule, so its expanded counts differ from the corrected primary analysis below. Original pooled Mann–Whitney tests assume independent words and are descriptive; construction bootstrap intervals and paired effects are the main uncertainty summaries. Full syntactic-type, anchor-class, tokenization, lemma and qualitative tables are preserved in results/original_tables/.
+Future work should score a balanced or complete corpus baseline, match genre and word sense, manually validate a stratified sample, and use context-aware morphology. Local-affinity interventions could test which context words affect predictions. A practical argument-prediction system would need whole-slot and multi-slot candidate generation, morphology and agreement constraints, held-out constructions and documents, and human judgments of acceptable alternatives. Comparisons across languages and checkpoints are needed before broader generalization.
 
-![Primary analysis after construction-scope correction. Accuracy intervals resample constructions; chain affinity includes multi-token words.](../results/figures/main_results.png)
+## 7. References
 
-| Primary exact recovery | Targets | Accuracy | 95% CI |
-| --- | --- | --- | --- |
-| Anchors | 2628 | 74.2% | [71.2, 77.2] |
-| Fillers | 3671 | 49.9% | [47.8, 52.0] |
+[1] Rozner, J., Weissweiler, L., Mahowald, K., and Shain, C. (2025). Constructions are Revealed in Word Distributions. EMNLP, 2116–2138. [Source](https://aclanthology.org/2025.emnlp-main.108/).
 
-Equal-construction accuracy difference: +20.1 points, CI [16.0, 24.2]; sign-test p=5.49e-19. Single-token-only accuracy is 79.5% for anchors and 57.3% for fillers. Restricting to single tokens addresses part of the word-length confound, but does not match lexical identity or word frequency.
+[2] Liu, Y., Ott, M., Goyal, N., Du, J., Joshi, M., Chen, D., Levy, O., Lewis, M., Zettlemoyer, L., and Stoyanov, V. (2019). RoBERTa: A Robustly Optimized BERT Pretraining Approach. arXiv:1907.11692. [Source](https://arxiv.org/abs/1907.11692).
 
+[3] Zmitrovich, D., et al. (2023). A Family of Pretrained Transformer Language Models for Russian. arXiv:2309.10931. [Source](https://arxiv.org/abs/2309.10931).
 
----
+[4] Janda, L. A., Lyashevskaya, O., Nesset, T., Rakhilina, E., and Tyers, F. M. (2018). A Constructicon for Russian: Filling in the Gaps. In Constructicography: Constructicon Development Across Languages, 165–181. John Benjamins. [Source](https://doi.org/10.1075/cal.22.06jan).
 
-# Does recovery depend on part of speech?
+[5] Salazar, J., Liang, D., Nguyen, T. Q., and Kirchhoff, K. (2020). Masked Language Model Scoring. ACL, 2699–2712. [Source](https://aclanthology.org/2020.acl-main.240/).
 
-![Anchor categories with at least 30 observations. These are word-level POS tags, distinct from the declared POS of an entire construction anchor.](../results/figures/anchor_pos.png)
+[6] Kauf, C., and Ivanova, A. A. (2023). A Better Way to Do Masked Language Model Scoring. ACL Short Papers, 925–935. [Source](https://aclanthology.org/2023.acl-short.80/).
 
-Among categories with at least 30 anchor tokens, observed accuracy ranges from 43.4% for adverb (n=228) to 94.1% for preposition (n=592). The differences are substantial descriptively; overlapping intervals should not be read as a complete pairwise significance test.
+[7] AI Forever. ruRoberta-large model card and pinned model files. Accessed September 2026. [Source](https://huggingface.co/ai-forever/ruRoberta-large/tree/5192d064ca6ac67c14c40e017ce41612e010f05f).
 
-The anchor-only model groups POS categories with fewer than 30 observations into OTHER_RARE. With log(1+subtoken count), log(1+sentence tokens), character count and log(1+observed sample form count) included, the joint POS Wald statistic is 38.14, p=3.58e-05 (n=2628, R²=0.234). Sample frequency is a weak proxy and is not an independent corpus-frequency estimate.
+[8] Russian National Corpus. Main corpus and public API documentation. Collection completed 28 September 2026. [Source](https://ruscorpora.github.io/public-api/).
 
-Across anchors and fillers, the adjusted anchor coefficient is +9.7 points, CI [6.3, 13.1], p=2.51e-08. Thus POS-related differences and the anchor-role association must be considered separately. Construction-specific lexical content, semantic predictability and training exposure remain potential confounders.
+[9] Russian Constructicon. Official data repository; revision 7806b7d74c56192b97150b06f755be4d37ad5b3c. [Source](https://github.com/constructicon/russian-data/tree/7806b7d74c56192b97150b06f755be4d37ad5b3c).
 
-| Original POS grouping | Anchor accuracy | Filler accuracy | n A/F |
-| --- | --- | --- | --- |
-| content | 61.3% | 40.5% | 1352 / 2803 |
-| func | 87.9% | 80.1% | 1276 / 868 |
+[10] Futyn-Maker. Russian Constructicon dataset with span annotations; revision 92d19006cb041c81b4bc21a34ebf3e4e082c5b4d. [Source](https://huggingface.co/datasets/Futyn-Maker/russian-constructicon/tree/92d19006cb041c81b4bc21a34ebf3e4e082c5b4d).
 
-The inherited function-word group includes prepositions, conjunctions, particles, pronouns, interjections and predicatives; adverbs generally fall into the other group. This operational grouping is not a universal linguistic taxonomy. Within-POS, within-construction paired tests and Holm-adjusted sign-test p-values are supplied in tables/within_pos_construction_differences.csv.
+## 8. Supplement
 
+### 8.1. AI declaration
 
----
+OpenAI Codex assisted with research-design discussions, hypothesis wording, literature discovery, code writing and debugging, run orchestration, statistical-analysis scripts, figures, and drafting and editing this English preprint. The user defined the research scope, provided RNC access, and requested the scoring stop. AI assistance was not an independent human annotation audit. Reported statistics were calculated by scripts from saved model outputs; the corpus sentences were obtained from the cited resources, not generated by AI. ruRoberta-large produced the predictions being evaluated and is distinct from the assistant used to prepare this report. Human authorship, attribution, and final scientific review must be settled by the researchers before external submission; this draft does not claim that such review has already occurred.
 
-# Same word forms inside versus RNC controls
+### 8.2. Reproducibility and supplementary results
 
-![Each point is one normalized word form; above the diagonal means higher exact recovery in construction examples.](../results/figures/matched_rnc.png)
+The repository stores compact word-level numeric tables, bootstrap summaries, adjusted-model coefficients, POS comparisons, coverage audits, source revisions, and this report. Full corpus sentences, model weights, and credentials are excluded from Git. results/cutoff_snapshot.json fixes input and output hashes; results/cutoff_analysis.json records missing-target and length diagnostics. The strict default rejects incomplete scoring; the final analysis requires an explicit cutoff flag and matching hashes. Collection and scoring remain stopped. Source attribution is provided in [7–10].
 
-| Comparison | Forms | In | Out | Δ points | 95% CI |
-| --- | --- | --- | --- | --- | --- |
-| All matched forms | 27 | 76.0% | 64.5% | +11.5 | [1.1, 21.5] |
-| Co-anchor filter applicable | 5 | 65.0% | 46.1% | +18.9 | [-7.8, 45.7] |
-| Same form + POS | 27 | 76.0% | 64.5% | +11.5 | [1.1, 21.5] |
-| At least 5 examples each | 20 | 81.0% | 65.8% | +15.2 | [5.2, 25.3] |
-
-The all-form comparison gives a Wilcoxon p-value of 0.0361; 17 form means are higher inside, with 1 ties. The corresponding sign-test p-value is 0.169, so the evidence is not uniform across tests. The strict five-form subset is inconclusive. Means in this table weight forms equally, not individual RNC sentences. Chain-affinity and single-token-affinity versions are in the machine-readable summary and matched-form CSV files.
-
-The expanded co-anchor filter retains 695 cached targets, of which 137 meet the filter-applicable criterion. It rejects a sentence if all observed co-anchor keys of any relevant construction are present. Single-anchor constructions cannot be excluded by this rule. Even the applicable subset is a heuristic control, not proof that every target is outside every construction.
-
-This baseline is limited by the original cache's vocabulary, few in-construction observations for some forms, differing genres and sentence lengths, and incomplete construction detection. The larger construction sample does not create a correspondingly larger independent RNC control sample. An authenticated, expanded RNC collection with manually verified negatives would be needed for a broad matched-lexeme claim.
-
-
----
-
-# Inside versus outside the same annotated span
-
-To broaden the contextual comparison, 1,888 words were sampled from outside HF-marked construction spans in 978 sentences spanning 282 constructions. Up to two outside words were sampled uniformly per sentence with a fixed seed, before scoring. All such sentences retain the same surrounding context as the inside targets.
-
-![Construction-cluster bootstrap intervals. A positive difference favors words inside the annotated construction.](../results/figures/outside_comparisons.png)
-
-| Inside role | Matching | Constructions | Δ points | 95% CI |
-| --- | --- | --- | --- | --- |
-| anchor | sentence | 282 | +12.7 | [8.1, 17.2] |
-| anchor | sentence and pos | 207 | +10.4 | [3.4, 17.1] |
-| filler | sentence | 275 | -9.6 | [-13.7, -5.5] |
-| filler | sentence and pos | 215 | -2.7 | [-9.9, 4.4] |
-| all inside | sentence | 282 | +4.0 | [0.4, 7.6] |
-| all inside | sentence and pos | 258 | +2.7 | [-2.8, 8.2] |
-
-After sentence-and-POS matching, the anchor advantage is +10.4 points, CI [3.4, 17.1]. The pooled inside-word estimate is +2.7 points, CI [-2.8, 8.2], and the filler estimate is -2.7 points, CI [-9.9, 4.4]. Thus these data support better recovery of anchors, not a general claim that every word inside a construction is easier to recover.
-
-For sentence matching, word accuracies are averaged by role within each sentence, then inside-minus-outside differences are averaged within each construction and across constructions. For sentence-and-POS matching, only POS categories observed on both sides are paired before the same construction-level aggregation. The two estimates target different supported subsets. “All inside” refers to classified anchor and filler targets; in-span words with neither role are excluded, as in the original pipeline.
-
-This comparison controls sentence context and, in the second version, observed POS, but not word identity. It addresses recovery inside versus outside the annotated target construction; an outside word may still instantiate some other construction. It cannot replace the same-word RNC comparison. Fillers and anchors should not be pooled without also examining their separate results.
-
-
----
-
-# Robustness, errors and limits
-
-| Anchor–filler sensitivity | Constructions | Δ accuracy points | 95% CI |
-| --- | --- | --- | --- |
-| Original span rule | 300 | +19.7 | [15.6, 23.8] |
-| Only HF-matched examples | 296 | +20.2 | [16.0, 24.3] |
-| Primary corrected rule | 297 | +20.1 | [16.0, 24.2] |
-
-| Construction anchor kind | Anchor accuracy | Filler accuracy | n A/F |
-| --- | --- | --- | --- |
-| content | 44.2% | 47.0% | 353 / 704 |
-| func | 74.6% | 52.8% | 327 / 583 |
-| mixed | 79.6% | 50.0% | 1948 / 2384 |
-
-Content-only constructions have pooled anchor accuracy of 44.2% versus 47.0% for fillers; superiority is not universal across construction kinds. Anchor kinds are automatically classified from name-derived lexical candidates. They are not identical to the original manually selected balanced strata. A small AI-assisted spot-check of 25 randomly selected in-span anchors (seed 991) found plausible alignments, but is not an independent annotation study and does not establish an error rate. Incidental occurrences of common anchor words inside broad spans and POS ambiguity can still bias results.
-
-| Low-affinity anchor | Construction | Top first subtoken | Chain affinity |
-| --- | --- | --- | --- |
-| тьма-тьмущая | тьма(-)тьмущая NP-Gen Cop / NP-Gen | . | 7.07e-09 |
-| числился | NP-Nom числиться Adj-Ins/NP-Ins | Федоров | 6.58e-08 |
-| припеваючи | NP-Nom жить припеваючи | спокойно | 5.69e-07 |
-
-The prediction column shows only the first masked subtoken, not a complete generated replacement. A failure of exact lexical recovery need not mean failure to recognize a construction: alternatives or synonyms are counted as wrong. Conversely, high filler recovery can reflect a constrained slot or repeated material.
-
-Scope: one pretrained model, one fixed random construction sample, curated examples rather than naturally sampled construction frequencies, and observational comparisons. Unknown pretraining overlap is possible. Source snapshots and deterministic sampling support reproducibility, but tiny numerical differences across hardware or package builds are possible. The original study's local-affinity/JSD and other tasks were outside its implemented pipeline and were not added here.
-
-
----
-
-# Reproducibility and source references
-
-The local Git repository contains analysis code, pinned source copies, selected construction metadata, numeric word-level results, original and extended tables, figures, tests, and this report. Downloaded corpus sentence files, model weights, virtual environments and logs are excluded from Git. The full sentence-level scoring outputs remain available locally.
-
-`python3.12 -m venv .venv`  
-`.venv/bin/pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.lock.txt`  
-`.venv/bin/python scripts/download_data.py`  
-`.venv/bin/python scripts/prepare.py --constructions 300`  
-`.venv/bin/python scripts/audit_spans.py`  
-`.venv/bin/python scripts/prepare_outside.py`  
-`.venv/bin/python scripts/score_expanded.py`  
-`.venv/bin/python scripts/score_expanded.py --dataset rnc`  
-`.venv/bin/python scripts/score_expanded.py --dataset outside`  
-`.venv/bin/python scripts/analyze_expanded.py`  
-`.venv/bin/python scripts/analyze_outside.py`  
-`.venv/bin/python scripts/build_report.py`  
-Scoring resumes from complete JSONL rows. Use a fresh output directory when changing the sample, model, masking or annotation rules. Analysis refuses incomplete or duplicated scoring coverage. Eight tests passed, including numerical equivalence with the original model path; lint checks passed. The full SHA-256 manifest is sources/manifest.json. README.md documents validation and output paths.
-
-[Original study and code](https://github.com/nisinterp/ru-constructions-revealed/tree/80234c447326551cc891c7c11174159af17c5158)
-
-[Official Constructicon](https://constructicon.ruscorpora.ru/)
-
-[Official YAML snapshot (CC BY 4.0)](https://github.com/constructicon/russian-data/tree/7806b7d74c56192b97150b06f755be4d37ad5b3c)
-
-[Hugging Face derivative](https://huggingface.co/datasets/Futyn-Maker/russian-constructicon/tree/92d19006cb041c81b4bc21a34ebf3e4e082c5b4d)
-
-[Russian National Corpus](https://ruscorpora.ru/)
-
-[ruRoberta-large checkpoint](https://huggingface.co/ai-forever/ruRoberta-large/tree/5192d064ca6ac67c14c40e017ce41612e010f05f)
-
-Attribution: Russian Constructicon / constructicon/russian-data; nisinterp/ru-constructions-revealed; Futyn-Maker/russian-constructicon; Russian National Corpus; ai-forever/ruRoberta-large. Sources are complementary, not independent corpora. Consult the preserved source metadata and license files for attribution and reuse terms.
+Supplementary files: results/summary.json (primary effects and probability summaries); results/outside_summary.json (all sentence and sentence–POS comparisons); results/tables/within_pos_construction_differences.csv (Holm-adjusted sign tests); results/tables/rnc_cutoff_form_coverage.csv (per-form scoring coverage); results/tables/cutoff_*.csv (length and complete-form sensitivities). Numerically underflowed test probabilities are stored as zero by the statistical library and must be interpreted as below numerical resolution, never as literally zero probability.

@@ -1,0 +1,17 @@
+{
+  "coverage": "complete, no duplicate targets",
+  "scored_targets": {
+    "constructicon": 7101,
+    "rnc": 695,
+    "outside": 1888
+  },
+  "sources_verified": 4026,
+  "numeric_ranges": "passed",
+  "summaries": "valid finite JSON",
+  "pdf_bytes": 279494,
+  "tests": "8 passed in 32.34s",
+  "lint": "ruff check scripts tests: passed",
+  "pdf_visual_review": "9 pages rendered and inspected; no clipped text",
+  "upstream_scripts_match_pinned_clone": true,
+  "pdf_sha256": "13422ed6f5e492724777ae76c4d19460c2531655695d679323f4a94d4d76ed35"
+}

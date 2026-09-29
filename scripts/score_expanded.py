@@ -8,6 +8,7 @@ import argparse
 from collections import defaultdict
 from functools import lru_cache
 import json
+import hashlib
 import math
 from pathlib import Path
 import sys
@@ -120,9 +121,21 @@ def main():
         / {"constructicon": "items.jsonl", "rnc": "rnc_items.jsonl", "outside": "outside_items.jsonl"}[args.dataset]
     )
     output = ROOT / "results" / f"affinity_{args.dataset}.jsonl"
+    # Do not mix scores from different inputs or versions of the scoring method.
+    signature = {
+        "input_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "scorer_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "model_revision": json.loads((ROOT / "sources/manifest.json").read_text())["model_revision"],
+    }
+    metadata = output.with_suffix(".metadata.json")
+    if output.exists() and (not metadata.exists() or json.loads(metadata.read_text()) != signature):
+        raise ValueError("Existing scores use different inputs or code; archive them before restarting")
+    metadata.write_text(json.dumps(signature, indent=2))
+    excluded_path = ROOT / "results" / f"exclusions_{args.dataset}.jsonl"
+    excluded_done = {tuple(json.loads(s)["key"]) for s in excluded_path.read_text().splitlines()} if excluded_path.exists() else set()
     done = {item_key(json.loads(s)) for s in output.read_text().splitlines()} if output.exists() else set()
     rows = [json.loads(s) for s in path.read_text().splitlines()]
-    rows = [r for r in rows if r["type"] != "other" and item_key(r) not in done]
+    rows = [r for r in rows if r["type"] != "other" and item_key(r) not in done and item_key(r) not in excluded_done]
     if args.limit:
         rows = rows[: args.limit]
     if not rows:
@@ -152,6 +165,9 @@ def main():
             work.append((r, enc["input_ids"], span))
     work.sort(key=lambda x: len(x[1]))
     print(f"Scoring {len(work)} targets; {len(excluded)} exclusions; {len(done)} already done", flush=True)
+    with excluded_path.open("a") as f:
+        for row in excluded:
+            f.write(json.dumps(row) + "\n")
     with output.open("a") as f:
         for start in range(0, len(work), 16):
             scores = scorer.score_batch(work[start : start + 16])
@@ -161,10 +177,6 @@ def main():
             if start % 160 == 0 or start + 16 >= len(work):
                 n = min(start + 16, len(work))
                 print(f"{n}/{len(work)} targets; {time.time() - t0:.1f}s", flush=True)
-    ep = ROOT / "results" / f"exclusions_{args.dataset}.jsonl"
-    with ep.open("a") as f:
-        for r in excluded:
-            f.write(json.dumps(r) + "\n")
     print(f"Completed {args.dataset} in {time.time() - t0:.1f}s", flush=True)
 
 

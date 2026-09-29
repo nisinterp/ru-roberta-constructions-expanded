@@ -1,17 +1,41 @@
 {
-  "coverage": "complete, no duplicate targets",
+  "analysis_mode": "user_requested_cutoff",
+  "coverage": {
+    "constructicon": {
+      "expected": 92851,
+      "scored": 92846,
+      "excluded": 5,
+      "unscored": 0,
+      "eligible": 92846,
+      "complete": true,
+      "scored_fraction": 1.0
+    },
+    "rnc": {
+      "expected": 165896,
+      "scored": 50992,
+      "excluded": 124,
+      "unscored": 114780,
+      "eligible": 165772,
+      "complete": false,
+      "scored_fraction": 0.3076032140530367
+    },
+    "outside": {
+      "expected": 23755,
+      "scored": 23755,
+      "excluded": 0,
+      "unscored": 0,
+      "eligible": 23755,
+      "complete": true,
+      "scored_fraction": 1.0
+    }
+  },
   "scored_targets": {
-    "constructicon": 7101,
-    "rnc": 695,
-    "outside": 1888
+    "constructicon": 92846,
+    "rnc": 50992,
+    "outside": 23755
   },
   "sources_verified": 4026,
   "numeric_ranges": "passed",
   "summaries": "valid finite JSON",
-  "pdf_bytes": 279494,
-  "tests": "8 passed in 32.34s",
-  "lint": "ruff check scripts tests: passed",
-  "pdf_visual_review": "9 pages rendered and inspected; no clipped text",
-  "upstream_scripts_match_pinned_clone": true,
-  "pdf_sha256": "13422ed6f5e492724777ae76c4d19460c2531655695d679323f4a94d4d76ed35"
+  "pdf_bytes": 310358
 }

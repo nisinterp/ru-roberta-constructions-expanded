@@ -1,20 +1,24 @@
 {
   "word_counts": {
-    "filler:matched:True": 3603,
-    "anchor:matched:True": 2585,
-    "other:matched:False": 6747,
-    "anchor:matched:False": 94,
-    "other:matched:True": 911,
-    "filler:matched:False": 708,
-    "other:unmatched:None": 113,
-    "anchor:unmatched:None": 43,
-    "filler:unmatched:None": 68,
-    "other:matched:None": 4,
-    "filler:matched:None": 1
+    "other:matched:False": 82898,
+    "anchor:matched:True": 35129,
+    "filler:matched:True": 47606,
+    "anchor:matched:False": 1374,
+    "other:matched:True": 12620,
+    "filler:matched:False": 7075,
+    "filler:unmatched:None": 1040,
+    "anchor:unmatched:None": 608,
+    "other:unmatched:None": 1721,
+    "other:matched:None": 106,
+    "filler:matched:None": 11,
+    "other:ambiguous:None": 15,
+    "filler:ambiguous:None": 3,
+    "anchor:ambiguous:None": 5
   },
   "example_counts": {
-    "matched": 1213,
-    "unmatched": 18
+    "matched": 15636,
+    "unmatched": 259,
+    "ambiguous": 2
   },
   "rule": "For text-matched HF examples, retain words inside braces; unmatched/ambiguous rows retained with a flag. No scores consulted."
 }
