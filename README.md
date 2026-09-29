@@ -1,179 +1,122 @@
-# Russian constructions and word prediction
+# Predicting words in Russian constructions
 
-This project tests how well **ruRoberta-large** predicts missing words in Russian grammatical constructions. It compares fixed words (**anchors**) with words in variable positions (**fillers**), and compares the same anchor forms with ordinary sentences from the **Russian National Corpus (RNC)**.
+This study asks whether **ruRoberta-large** predicts fixed words in constructions (**anchors**) more accurately than words in variable slots (**fillers**). It also compares construction words with ordinary corpus words and words outside the annotated construction in the same sentence.
 
-The model stays unchanged. We do not train it on the examples or generate synthetic sentences.
+**The experiment is stopped. The final analysis uses all locally saved predictions at the requested cutoff on 28 September 2026.** Construction and outside-span scoring finished. RNC collection finished, but RNC scoring did not. No Colab results were imported.
 
-## Current study
+Read the [PDF preprint](report/findings.pdf) or its [editable text](report/findings.md). The preprint includes related literature, hypotheses, methods, results, four figures, limitations, references, and an AI declaration.
 
-The new experiment examines **all 4,001 entries** in the pinned Russian Constructicon snapshot. The original parsing rules find usable examples for **3,844 constructions**. After duplicate sentences are removed, **15,897 sentences represent 3,843 constructions**. One construction loses its only example during deduplication. The coverage audit lists all excluded entries; “all constructions” does not mean that entries without usable annotations can be scored.
+## Main findings
 
-**The full experiment is running. Its findings are not yet available.** The previous results are preserved in [the 300-construction archive](archive/300-constructions/report/findings.md). They must not be cited as results of the full-inventory study.
+- Anchors were recovered exactly in **76.2%** of cases; fillers in **50.7%**. The equally weighted within-construction difference was **24.2 percentage points**, with a 95% confidence interval of **23.1–25.3**.
+- The adjusted anchor advantage was **11.0 points [10.0, 11.9]**, accounting for POS, token count, sentence length, word length, and sample frequency.
+- Against outside-span words matched by sentence and POS, anchors had an advantage of **16.3 points [14.3, 18.2]**. Fillers had **no clear advantage: 0.6 points [−1.3, 2.6]**.
+- The partial same-form RNC comparison favored anchors by **24.7 points [23.5, 26.0]**. Exact sentence-token-length matching reduced this to **19.4 points [17.6, 21.3]**. Both estimates apply only to the scored subset.
+- Single-token fillers had **58.9%** exact recovery and **81.9%** top-five recovery. Multi-token fillers had **20.3%** exact recovery. These results do not demonstrate reliable prediction of whole argument combinations.
 
-When every scoring and validation step finishes, the pipeline writes:
+The earlier [300-construction study](archive/300-constructions/report/findings.md) is preserved separately. Its results are not the full-inventory results. Changes in estimates are described in section 5.4 of the preprint; overlapping samples do not support a simple independent before–after significance test.
 
-- `report/findings.pdf`: the preprint in simple academic English, with explanatory figures.
-- `report/findings.md`: the same report in editable text.
-- `results/verification.json`: coverage and numerical checks.
-- `results/run_status.json`: the current stage, or the reason to inspect a failed stage's log.
+## Data and completion
 
-A report is built only from complete target coverage. A successful run is marked `complete` in `results/run_status.json`.
-
-## Where the sentences come from
-
-| Source | What we use it for |
+| Stage | Final coverage |
 | --- | --- |
-| [Russian Constructicon](https://github.com/constructicon/russian-data) | Construction descriptions, example sentences, and variable-slot annotations |
-| [Constructicon on Hugging Face](https://huggingface.co/datasets/Futyn-Maker/russian-constructicon) | Boundaries showing which words belong to the annotated construction |
-| [Russian National Corpus](https://ruscorpora.ru/) | New corpus sentences containing the same anchor word forms |
+| Constructicon entries examined | 4,001 |
+| Eligible entries / represented after deduplication | 3,844 / 3,843 |
+| Unique prepared example sentences | 15,897 |
+| Completed construction targets / alignment exclusions | 92,846 / 5 |
+| Primary in-scope anchors / fillers | 35,742 / 48,655 |
+| Completed outside-span controls | 23,755 |
+| RNC forms queried / forms with retained controls | 3,754 / 3,682 |
+| Retained RNC targets / scoring exclusions | 165,896 / 124 |
+| Scored RNC targets / eligible but unscored | 50,992 / 114,780 |
+| Forms represented in scored RNC data | 3,608 |
 
-The two Constructicon sources mostly contain the same examples. We join their annotations instead of counting them as separate data. All eligible examples are selected before model predictions are inspected. Source revisions and file hashes are recorded in `sources/manifest.json`.
+The scorer processed short sentences first. Only **30.8%** of eligible RNC targets were scored, with **16 forms** fully scored. Scored contexts have a median of 7 whitespace-separated words; unscored contexts have a median of 21. The RNC results are therefore **not estimates for the complete collected baseline**. Length matching cannot recover missing predictions.
 
-The prepared inventory contains **3,754 anchor forms** eligible for RNC queries. The collector searches each form and keeps up to **50 usable contexts**, using at most three result pages. Some forms may have fewer or no controls. `results/rnc_collection.json` records requested forms, retained counts, and exclusions, including zero-coverage forms. Incomplete API snippets with missing text are rejected in full; per-form parser exclusion counts are saved with the cache and in the collection audit. The old 27-form baseline is not used for the new conclusions.
+The [official Russian Constructicon](https://github.com/constructicon/russian-data) provides entries, examples, and variable-slot annotations. The [Hugging Face derivative](https://huggingface.co/datasets/Futyn-Maker/russian-constructicon) provides construction boundaries. These sources overlap and are joined, not counted as independent datasets. Every source entry is examined; entries without usable annotations cannot be scored. The scope audit removes 8,449 already-scored outside-span targets from the primary construction analysis.
 
-RNC controls are ordinary corpus contexts selected by word identity. They are **not a random sample of all Russian sentences**. A filter removes recognizable combinations of construction anchors, but cannot guarantee that every retained sentence is free of constructions. This matters especially for constructions with only one anchor.
+The [Russian National Corpus](https://ruscorpora.ru/) supplies same-form controls, up to 50 retained contexts per form and three result pages. Wrong forms, duplicates, incomplete snippets, overlaps with construction examples, and detectable co-anchor combinations are filtered. Controls are not a random sample of Russian, and may still contain constructions. Up to two outside-span words per eligible construction sentence provide a separate control without matching word identity.
 
-We also sample up to two words outside the annotated construction in each eligible example sentence. This keeps the surrounding sentence fixed, but does not match word identity. The prepared sample has **23,755 outside-span targets** before scoring exclusions.
+No synthetic sentences or fine-tuning were used. Source revisions and hashes are in `sources/manifest.json`. The model revision is `5192d064ca6ac67c14c40e017ce41612e010f05f`.
 
-## What is measured
+## What the pipeline measures
 
-For each target, the model sees the sentence with that word masked. All other words remain visible.
+Each target word is masked separately; the rest of the sentence remains visible.
 
-- **Exact recovery:** the original word is the model's highest-ranked prediction at every token step.
-- **Single-token probability:** the probability of an original word that occupies one model token.
-- **Chain probability:** the product of conditional probabilities when a word occupies several tokens.
-- **Lemma probability:** the summed probability of eligible one-token vocabulary forms sharing the lemma.
+- **Exact recovery:** every original target token ranks first.
+- **Single-token affinity:** probability of the original one-token word.
+- **Chain affinity:** product of conditional token probabilities within a word. For a multi-token word, later pieces stay masked while original earlier pieces are restored from left to right.
+- **Log-chain affinity:** sum of the same log probabilities.
+- **Lemma affinity:** probability mass of eligible one-token vocabulary forms sharing a lemma; computed for anchors and RNC controls, not fillers.
+- **Top-five recovery:** whether a one-token target occurs among the five highest-ranked predictions.
 
-For multi-token words, the original prefix is restored from left to right. The target length is known. This is a constrained prediction experiment, not free text generation.
+The multi-token method uses the within-word left-to-right masking principle; it is not a separate PLL model or a whole-sentence PLL calculation. Word length is supplied, and complete multiword arguments are not generated. **Local affinity was not computed.**
 
-The main comparison averages anchor-minus-filler accuracy within each construction and then weights constructions equally. The RNC comparison weights matched word forms equally. Confidence intervals use 10,000 bootstrap resamples. Adjusted analyses account for grammatical category, token count, word length, sentence length, and sample frequency. These are observational associations, not causal effects.
+Confidence intervals use 10,000 bootstrap resamples, clustered by construction or matched form. POS adjustment includes both anchors and fillers. Automatic context-free POS labels, imperfect controls, training-data overlap, and corpus selection limit interpretation. See the preprint for weighting rules and hypothesis tests.
 
-## Setup
+## Reproduce the final analysis without restarting scoring
 
-Use Python 3.12. The model download is about 1.4 GB. Allow several GB of disk space and memory. Full scoring is a long CPU job; collecting and scoring thousands of RNC forms can take a day or longer, depending on the computer and API response times.
+Use Python 3.12 and the local source data and prediction JSONL files. Full sentence files are excluded from Git, so a fresh clone alone can inspect the published numeric results but cannot reproduce the raw-data coverage checks.
 
 ```bash
 python3.12 -m venv .venv
 .venv/bin/pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.lock.txt
+.venv/bin/python scripts/analyze_expanded.py --cutoff --skip-legacy
+.venv/bin/python scripts/analyze_outside.py
+.venv/bin/python scripts/analyze_cutoff.py
+.venv/bin/python scripts/build_preprint.py --cutoff
+.venv/bin/python scripts/verify_results.py --cutoff
 ```
 
-PDF creation uses the DejaVu Sans fonts, normally provided by `fonts-dejavu-core` on Linux. The pipeline runner uses Linux file locking.
+`--cutoff` permits the explicitly frozen RNC sample only when the saved input and output hashes match `results/cutoff_snapshot.json`. Construction and outside-span coverage must remain complete. `--skip-legacy` skips the duplicate upstream analysis, not any primary or cutoff statistics. PDF creation requires the DejaVu Sans system fonts.
 
-### Configure RNC access
+The study runner refuses to restart a frozen study. For a new full experiment, use a separate checkout and output directory, preserving this snapshot. The original complete-run report builder remains `scripts/build_report.py`; the current publication draft is built by `scripts/build_preprint.py`.
 
-Obtain a token through your RNC account. See the [official API documentation](https://ruscorpora.github.io/public-api/).
+## New collection and scoring
 
-Create `.env` in this repository, containing this line with your own token:
+These instructions are for a **separate new experiment**, not the stopped study. The model download is approximately 1.4 GB; CPU scoring is lengthy.
+
+Obtain an RNC credential through your account and configure `RNC_API_TOKEN` in the environment or a local ignored `.env` file. See the [RNC API documentation](https://ruscorpora.github.io/public-api/). Never commit the credential.
 
 ```text
 RNC_API_TOKEN=your_token_here
 ```
 
-Set file permissions with `chmod 600 .env`. The file is ignored by Git. Alternatively, set the `RNC_API_TOKEN` environment variable. Never add the token to scripts, reports, or commits.
+Restrict `.env` permissions with `chmod 600 .env`. In a separate clean checkout, `scripts/run_study.py` prepares and runs all stages; `--resume` reuses completed batches after fingerprint checks. Never run two scorers on the same output file. Changing model files, inputs, or scoring code invalidates resume compatibility.
 
-### Run the full experiment
+The [Colab notebook](notebooks/score_rnc_colab.ipynb), `scripts/export_colab.py`, and `scripts/import_colab.py` support an optional GPU transfer. The transfer ZIP contains corpus text and stays outside Git. The notebook checks model hashes, float32 CPU/GPU agreement, and performance before scoring. No GPU outputs form part of this preprint, and importing new predictions would invalidate the published cutoff hashes.
 
-```bash
-.venv/bin/python scripts/run_study.py
-```
+## Files and code
 
-For a long local run, keep it alive after closing the terminal:
-
-```bash
-nohup .venv/bin/python scripts/run_study.py > study.log 2>&1 &
-```
-
-Check progress:
-
-```bash
-cat results/run_status.json
-tail -n 10 results/score_expanded.log
-tail -n 10 results/collect_rnc.log
-```
-
-After an interruption, resume with:
-
-```bash
-.venv/bin/python scripts/run_study.py --resume
-```
-
-Collection reuses completed per-form caches. Scoring reuses completed batches and checks input and scoring-code fingerprints before doing so. Do not change preparation, scoring settings, model files, or input data during a run. Use a fresh checkout or archive the previous outputs when changing the experiment. Do not start a second scorer on the same output file.
-
-If a process was killed while writing its final JSONL row, back up the output and remove only that incomplete final row before resuming. Never remove complete rows or an exclusion file to bypass validation.
-
-## Continue RNC scoring on a Colab GPU
-
-Open [the Colab notebook](https://colab.research.google.com/github/nisinterp/ru-roberta-constructions-expanded/blob/full-inventory-rnc-study/notebooks/score_rnc_colab.ipynb). Select a GPU runtime and follow its numbered cells.
-
-On the machine running the CPU experiment, `scripts/export_colab.py` creates `data/colab_transfer.zip` containing only unfinished RNC targets, CPU reference predictions, and the required scoring code. Upload this bundle through the notebook. It contains corpus sentences and is intentionally ignored by Git. No RNC credential is included or needed.
-
-The notebook downloads the exact model revision, verifies its file hashes, and keeps float32 scoring. It checks CPU/GPU agreement and benchmarks short and long remaining contexts before the full run. It saves completed batches to Google Drive. Do not install the CPU-only requirements lockfile in Colab.
-
-CPU work can continue while Colab is prepared. Return the completed GPU result ZIP for validation. Before merging, stop the local scorer and study runner, extract the result ZIP, and run:
-
-```bash
-.venv/bin/python scripts/import_colab.py /path/to/extracted/results
-.venv/bin/python scripts/run_study.py --resume
-```
-
-The importer preserves CPU results, validates duplicate predictions, adds only missing targets, and checks final coverage. It refuses to merge while this checkout's CPU scorer or runner is active. CUDA execution cannot be tested on the CPU-only development machine; the notebook's real-GPU validation is required before accepting its results.
-
-## Individual steps
-
-These commands are also useful for inspecting or debugging one stage:
-
-```bash
-.venv/bin/python scripts/download_data.py
-.venv/bin/python scripts/prepare.py --constructions 0
-.venv/bin/python scripts/audit_spans.py
-.venv/bin/python scripts/prepare_outside.py
-.venv/bin/python scripts/collect_rnc.py
-.venv/bin/python scripts/score_expanded.py
-.venv/bin/python scripts/score_expanded.py --dataset outside
-.venv/bin/python scripts/score_expanded.py --dataset rnc
-.venv/bin/python scripts/analyze_expanded.py
-.venv/bin/python scripts/analyze_outside.py
-.venv/bin/python scripts/build_report.py
-.venv/bin/python scripts/verify_results.py
-```
-
-`prepare.py` defaults to the entire eligible inventory; `--constructions 0` makes that choice explicit. Positive values are for smaller development runs. `score_expanded.py --limit N` is for debugging; incomplete runs cannot produce the final preprint.
-
-## Files and scripts
-
-| File or directory | Purpose |
+| File | Purpose |
 | --- | --- |
-| `scripts/prepare.py` | Parse every entry, assign roles, remove duplicate sentences, and record coverage |
+| `scripts/prepare.py` | Parse all entries, assign roles, deduplicate examples |
 | `scripts/audit_spans.py` | Check word roles against construction boundaries |
-| `scripts/collect_rnc.py` | Collect same-form corpus controls with resumable caches |
-| `scripts/score_expanded.py` | Run the unchanged pretrained model and save predictions |
-| `scripts/analyze_expanded.py` | Compare anchors, fillers, grammatical categories, and matched corpus forms |
-| `scripts/analyze_outside.py` | Compare words inside and outside the same annotated span |
-| `scripts/build_report.py` | Create figures and the PDF/Markdown preprint from completed results |
-| `scripts/run_study.py` | Run all stages, save progress, and stop on failures |
-| `results/*audit.json` | Coverage, annotation checks, and exclusions |
-| `results/tables/` | Numeric results and sensitivity analyses |
-| `results/figures/` | Standalone illustrations |
-| `sources/` | Source revisions, attribution, and licenses |
-| `upstream/` | Original scripts, preserved without edits |
-| `archive/300-constructions/` | Historical results; not the current experiment |
+| `scripts/collect_rnc.py` | Collect resumable same-form controls |
+| `scripts/score_expanded.py` | Score words with the unchanged pretrained model |
+| `scripts/analyze_expanded.py` | Primary role, POS, probability, and matched-form analyses |
+| `scripts/analyze_outside.py` | Sentence and sentence–POS comparisons |
+| `scripts/analyze_cutoff.py` | Missing-data audit and length sensitivities; no model inference |
+| `scripts/study_coverage.py` | Strict target coverage and cutoff hash checks |
+| `scripts/build_preprint.py` | Final PDF and Markdown preprint |
+| `scripts/verify_results.py` | Coverage, numeric-range, provenance, and report checks |
+| `results/summary.json` | Primary statistics |
+| `results/cutoff_analysis.json` | Partial-baseline diagnostics and sensitivities |
+| `results/*_scores.csv.gz` | Word-level numeric results without full sentences |
+| `results/tables/`, `results/figures/` | Detailed analyses and standalone figures |
+| `sources/`, `upstream/` | Provenance, licenses, unchanged original code |
+| `archive/300-constructions/` | Historical sample, kept separate |
 
-Full source sentences, model weights, local environments, logs, and credentials stay outside Git. Numeric score tables and report artifacts can be shared after verification. Source licenses and RNC terms still apply.
-
-For compatibility with the original analysis, some table names contain `all_cached_controls`. In the new run this label refers to the newly collected, locally cached RNC controls; provenance is recorded in `rnc_collection.json`.
+The old table label `all_cached_controls` now means all **scored** controls in the new RNC collection; it does not mean all collected targets were scored. Null lemma probabilities for fillers mean “not computed,” not zero. Extremely small test probabilities may underflow to zero in machine-readable tables.
 
 ## Checks
 
 ```bash
 .venv/bin/pytest -q
 .venv/bin/ruff check scripts tests
-.venv/bin/python scripts/verify_results.py
+.venv/bin/python scripts/verify_results.py --cutoff
 ```
 
-Tests cover word offsets, construction boundaries, duplicate removal, RNC filtering, and agreement between optimized scoring and the original model calculation. The RNC data-integrity test is skipped until live collection is complete. Final verification requires all three scored datasets and the generated PDF.
+Tests cover annotation offsets, duplicate removal, filtering, scoring agreement, report rendering, and the cutoff guard. Tests needing local model or corpus assets may skip in a fresh clone. Full verification requires local source and prediction files.
 
-## Interpretation and limits
-
-Good recovery may reflect fixed phrases, common words, semantic constraints, or training exposure. It does not by itself prove human-like grammatical understanding. Automatic role alignment and POS tags can be wrong. The curated examples do not reflect natural construction frequencies, and corpus contexts are not manually verified negatives. The report presents these limits alongside the findings.
-
-This project extends [nisinterp/ru-constructions-revealed](https://github.com/nisinterp/ru-constructions-revealed/tree/80234c447326551cc891c7c11174159af17c5158), using the same pinned `ai-forever/ruRoberta-large` checkpoint and original probability definitions.
+The project extends [ru-constructions-revealed](https://github.com/nisinterp/ru-constructions-revealed/tree/80234c447326551cc891c7c11174159af17c5158). Full source sentences, credentials, model weights, and generated environments are excluded from Git. Source licenses and RNC terms still apply. AI assistance is disclosed in section 8.1 of the preprint.

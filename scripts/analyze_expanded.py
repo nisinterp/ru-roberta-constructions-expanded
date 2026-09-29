@@ -1,6 +1,11 @@
-"""Cluster-aware accuracy, POS, and matched-form analyses; original metrics too."""
+"""Compare lexical roles and matched forms using construction-aware uncertainty.
+
+Complete coverage is required unless the explicit, hash-verified RNC cutoff is
+requested. Bootstrap units are constructions or matched forms, never raw words.
+"""
 
 import json
+import argparse
 import hashlib
 from pathlib import Path
 import sys
@@ -23,32 +28,14 @@ NBOOT = 10000
 
 
 def require_complete(dataset, input_name):
-    """Never publish estimates from an interrupted scoring run."""
-    from score_expanded import item_key
+    """Keep strict completeness as the default for ordinary experiment runs."""
+    from study_coverage import check_coverage
 
-    metadata = RES / f"affinity_{dataset}.metadata.json"
-    expected_hash = hashlib.sha256((ROOT / "data" / input_name).read_bytes()).hexdigest()
-    if not metadata.exists() or json.loads(metadata.read_text())["input_sha256"] != expected_hash:
-        raise ValueError(f"{dataset} score provenance does not match the current input")
-    expected = {
-        item_key(json.loads(s))
-        for s in (ROOT / "data" / input_name).read_text().splitlines()
-        if json.loads(s)["type"] != "other"
-    }
-    output = [item_key(json.loads(s)) for s in (RES / f"affinity_{dataset}.jsonl").read_text().splitlines()]
-    excluded_path = RES / f"exclusions_{dataset}.jsonl"
-    excluded = (
-        {tuple(json.loads(s)["key"]) for s in excluded_path.read_text().splitlines()}
-        if excluded_path.exists()
-        else set()
-    )
-    if len(output) != len(set(output)) or set(output) & excluded or set(output) | excluded != expected:
-        raise ValueError(
-            f"Incomplete or duplicate {dataset} scores: expected {len(expected)}, scored {len(output)}, excluded {len(excluded)}"
-        )
+    return check_coverage(dataset, input_name, root=ROOT)
 
 
 def boot_mean(values):
+    """Percentile interval for equally weighted paired construction/form effects."""
     x = np.asarray(values, dtype=float)
     if not len(x):
         return [None, None]
@@ -58,6 +45,7 @@ def boot_mean(values):
 
 
 def cluster_rate(df, col="correct", cluster="record"):
+    """Resample whole clusters, retaining occurrence weighting within each draw."""
     sub = df[df[col].notna()]
     if not len(sub):
         return dict(n=0, clusters=0, mean=None, ci95=[None, None])
@@ -74,6 +62,7 @@ def cluster_rate(df, col="correct", cluster="record"):
 
 
 def paired_summary(d):
+    """Summarize paired effects; ties stay in the mean but leave the sign test."""
     d = np.asarray(d, dtype=float)
     nz = d[d != 0]
     return dict(
@@ -103,13 +92,21 @@ def pos_model(df, formula, cluster):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--cutoff", action="store_true", help="Analyze the verified user-requested RNC cutoff")
+    parser.add_argument(
+        "--skip-legacy", action="store_true", help="Skip duplicate upstream analysis; primary statistics are unchanged"
+    )
+    args = parser.parse_args()
+    from study_coverage import check_coverage
+
     TABLES.mkdir(exist_ok=True)
     collection = json.loads((RES / "rnc_collection.json").read_text())
     input_hash = hashlib.sha256((ROOT / "data/items.jsonl").read_bytes()).hexdigest()
     if collection["source"] != "RNC_live_API" or collection["input_sha256"] != input_hash:
         raise ValueError("Collect a complete live RNC baseline for the current inventory first")
     require_complete("constructicon", "items.jsonl")
-    require_complete("rnc", "rnc_items.jsonl")
+    rnc_coverage = check_coverage("rnc", "rnc_items.jsonl", allow_cutoff=args.cutoff, root=ROOT)
     con = pd.read_json(RES / "affinity_constructicon.jsonl", lines=True)
     rnc = pd.read_json(RES / "affinity_rnc.jsonl", lines=True)
     scopes = json.loads((ROOT / "data/scope_index.json").read_text())
@@ -121,6 +118,8 @@ def main():
     for df in (con, rnc):
         df["pos_class"] = np.where(df.pos.isin(original.FUNC_POS), "func", "content")
     summary = {
+        "analysis_mode": "user_requested_cutoff" if args.cutoff else "complete_run",
+        "rnc_scoring_coverage": rnc_coverage,
         "rnc_collection": {k: v for k, v in collection.items() if k != "forms"},
         "counts": dict(
             constructions=int(con.record.nunique()),
@@ -129,7 +128,7 @@ def main():
             fillers=int((con.type == "filler").sum()),
             rnc_targets=len(rnc),
             rnc_forms=int(rnc.form.nunique()),
-        )
+        ),
     }
     summary["scope_filter"] = dict(
         excluded_scored_targets=len(raw_con) - len(con), retained_unmatched=int((con.scope_status != "matched").sum())
@@ -138,8 +137,9 @@ def main():
     original.ROOT = ROOT
     original.RES = RES
     original.TABLES = RES / "original_tables"
-    original.main()
-    (RES / "summary.json").rename(RES / "original_metrics.json")
+    if not args.skip_legacy:
+        original.main()
+        (RES / "summary.json").rename(RES / "original_metrics.json")
     for metric in ["correct", "p_chain", "p_single", "top5_single"]:
         entry = {}
         for role in ["anchor", "filler"]:
@@ -148,6 +148,25 @@ def main():
         entry["paired_construction_difference"] = paired_summary(paired.anchor - paired.filler)
         paired.assign(diff=paired.anchor - paired.filler).to_csv(TABLES / f"construction_{metric}.csv")
         summary[metric] = entry
+    summary["probability_descriptives"] = {}
+    for metric in ["p_single", "p_chain", "p_lemma", "log_p_chain"]:
+        summary["probability_descriptives"][metric] = {}
+        for role in ["anchor", "filler"]:
+            values = con.loc[con.type == role, metric].dropna()
+            summary["probability_descriptives"][metric][role] = dict(
+                n=len(values),
+                mean=float(values.mean()) if len(values) else None,
+                median=float(values.median()) if len(values) else None,
+                q25=float(values.quantile(0.25)) if len(values) else None,
+                q75=float(values.quantile(0.75)) if len(values) else None,
+            )
+    summary["tokenization"] = {
+        role: {
+            label: cluster_rate(group[group.n_tokens.gt(1) == multi])
+            for label, multi in [("single", False), ("multi", True)]
+        }
+        for role, group in con.groupby("type")
+    }
     pos_rows = []
     for (pos, role), g in con.groupby(["pos", "type"]):
         r = cluster_rate(g)
@@ -207,7 +226,8 @@ def main():
     )
     coefs.to_csv(TABLES / "anchor_advantage_adjusted_model.csv", index=False)
     summary["adjusted_anchor_advantage"] = coefs[coefs.term == "is_anchor"].iloc[0].to_dict()
-    # Matched forms, and matched form+POS as a homograph sensitivity analysis.
+    # Match form identity before comparing contexts. Context-free POS matching
+    # cannot reliably disambiguate homographs and is only a limited sensitivity check.
     summary["in_vs_out"] = {}
     for label, c, r, keys in [
         ("all_cached_controls", con, rnc, ["form"]),
@@ -216,7 +236,7 @@ def main():
         ("at_least_five_each", con, rnc, ["form"]),
     ]:
         summary["in_vs_out"][label] = {}
-        for metric in ["correct", "p_chain", "p_single"]:
+        for metric in ["correct", "p_chain", "p_single", "p_lemma"]:
             a = c[c.type == "anchor"].groupby(keys)[metric].agg(["mean", "count"])
             b = r.groupby(keys)[metric].agg(["mean", "count"])
             pair = a.join(b, lsuffix="_in", rsuffix="_out", how="inner").dropna()
@@ -257,6 +277,7 @@ def main():
         "n_tokens",
         "p_single",
         "p_chain",
+        "log_p_chain",
         "p_lemma",
         "correct",
         "top5_single",

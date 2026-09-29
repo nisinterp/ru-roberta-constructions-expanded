@@ -37,6 +37,8 @@ POS_NAMES = {
     "NUMR": "Numeral",
     "COMP": "Comparative",
     "PRTF": "Participle",
+    "PRTS": "Short participle",
+    "GRND": "Adverbial participle",
 }
 
 

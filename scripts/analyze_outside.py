@@ -67,12 +67,18 @@ def main():
     columns = [
         "record",
         "example_idx",
+        "char_start",
+        "char_end",
         "sentence_id",
         "type",
         "form",
         "pos",
         "n_tokens",
         "p_chain",
+        "log_p_chain",
+        "p_single",
+        "p_lemma",
+        "top5_single",
         "correct",
         "sentence_tokens",
     ]

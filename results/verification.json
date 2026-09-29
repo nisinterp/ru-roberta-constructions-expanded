@@ -1,0 +1,41 @@
+{
+  "analysis_mode": "user_requested_cutoff",
+  "coverage": {
+    "constructicon": {
+      "expected": 92851,
+      "scored": 92846,
+      "excluded": 5,
+      "unscored": 0,
+      "eligible": 92846,
+      "complete": true,
+      "scored_fraction": 1.0
+    },
+    "rnc": {
+      "expected": 165896,
+      "scored": 50992,
+      "excluded": 124,
+      "unscored": 114780,
+      "eligible": 165772,
+      "complete": false,
+      "scored_fraction": 0.3076032140530367
+    },
+    "outside": {
+      "expected": 23755,
+      "scored": 23755,
+      "excluded": 0,
+      "unscored": 0,
+      "eligible": 23755,
+      "complete": true,
+      "scored_fraction": 1.0
+    }
+  },
+  "scored_targets": {
+    "constructicon": 92846,
+    "rnc": 50992,
+    "outside": 23755
+  },
+  "sources_verified": 4026,
+  "numeric_ranges": "passed",
+  "summaries": "valid finite JSON",
+  "pdf_bytes": 310358
+}

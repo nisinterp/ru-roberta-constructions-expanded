@@ -19,3 +19,10 @@ results/.run.lock
 
 data/colab_transfer/
 data/colab_transfer.zip
+
+# Local process bookkeeping and superseded working summaries.
+results/stopped_workers.json
+results/interim_*.json
+
+# Local qualitative examples contain complete source sentences.
+results/tables/qualitative.md

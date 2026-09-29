@@ -1,0 +1,32 @@
+{
+  "cutoff_utc": "2026-09-28T20:47:25.005072+00:00",
+  "reason": "User requested stopping collection/scoring and final analysis of completed local predictions.",
+  "files": {
+    "results/affinity_constructicon.jsonl": {
+      "sha256": "812f6d8f393f31d8ec08c540e19ada804ab09fc40eb9883e14f9b36f5e97a1d1",
+      "rows": 92846
+    },
+    "results/affinity_outside.jsonl": {
+      "sha256": "188ca1a3a335966ba8b17b963e535d99e93fe17144f6f5c3d42c63f281a253b2",
+      "rows": 23755
+    },
+    "results/affinity_rnc.jsonl": {
+      "sha256": "42b5c4f476cb8ce8f4bf817263fe0f357ead230fb7e40dec1881e214b9916f6e",
+      "rows": 50992
+    },
+    "data/items.jsonl": {
+      "sha256": "2b34f6624687a8ada48a0a4f560bfa6fd058e5b06a6a72b2a592e70eb7bc7d1a"
+    },
+    "data/rnc_items.jsonl": {
+      "sha256": "e972e357507899d356195ec0bd7b33add2dec9e72263480eb9400636584683e8"
+    },
+    "data/outside_items.jsonl": {
+      "sha256": "6fa65ff41285ae3a805eef382fe8a9f9e526020f6a291b6ab15069668ab2165d"
+    },
+    "data/scope_index.json": {
+      "sha256": "85206e7490eceda190eb2038bd9e9dea3b3f773e63cc5de4955319cdd1dc7a23"
+    }
+  },
+  "discarded_incomplete_tail_bytes": {},
+  "colab_results_imported": false
+}

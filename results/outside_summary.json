@@ -1,0 +1,255 @@
+{
+  "counts": {
+    "outside_words": 23755,
+    "outside_sentences": 12289,
+    "outside_constructions": 3634
+  },
+  "rates": {
+    "anchor": {
+      "n": 35129,
+      "clusters": 3837,
+      "mean": 0.7621053830168807,
+      "ci95": [
+        0.7543873751524426,
+        0.7696055111566965
+      ]
+    },
+    "filler": {
+      "n": 47601,
+      "clusters": 3821,
+      "mean": 0.5071322031049768,
+      "ci95": [
+        0.5008435520565444,
+        0.5132526932883544
+      ]
+    },
+    "outside": {
+      "n": 23755,
+      "clusters": 3634,
+      "mean": 0.530372553146706,
+      "ci95": [
+        0.5237632917752852,
+        0.5368664080454072
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "role": "anchor",
+      "matching": "sentence",
+      "metric": "correct",
+      "matched_cells": 12242,
+      "n_pairs": 3624,
+      "mean_diff": 0.17672009136620062,
+      "ci95": [
+        0.16446775355653667,
+        0.1889582528513613
+      ],
+      "positive": 2349,
+      "ties": 410,
+      "wilcoxon_p": 1.7815976554067587e-148,
+      "sign_p": 1.295583181964943e-156,
+      "mean_in": 0.7009382664949718,
+      "mean_out": 0.5242181751287711
+    },
+    {
+      "role": "anchor",
+      "matching": "sentence",
+      "metric": "p_chain",
+      "matched_cells": 12242,
+      "n_pairs": 3624,
+      "mean_diff": 0.2120553211786955,
+      "ci95": [
+        0.2012360323703251,
+        0.2228338227137703
+      ],
+      "positive": 2708,
+      "ties": 0,
+      "wilcoxon_p": 4.221373160275093e-241,
+      "sign_p": 3.309408135127228e-203,
+      "mean_in": 0.6363665539232013,
+      "mean_out": 0.4243112327445059
+    },
+    {
+      "role": "anchor",
+      "matching": "sentence_and_pos",
+      "metric": "correct",
+      "matched_cells": 5842,
+      "n_pairs": 2761,
+      "mean_diff": 0.16260915932230674,
+      "ci95": [
+        0.14341012213771176,
+        0.1820159639220894
+      ],
+      "positive": 1188,
+      "ties": 1086,
+      "wilcoxon_p": 8.258020849344917e-54,
+      "sign_p": 1.4189521283341191e-67,
+      "mean_in": 0.6958730733631132,
+      "mean_out": 0.5332639140408065
+    },
+    {
+      "role": "anchor",
+      "matching": "sentence_and_pos",
+      "metric": "p_chain",
+      "matched_cells": 5842,
+      "n_pairs": 2761,
+      "mean_diff": 0.1823165508367062,
+      "ci95": [
+        0.16647683897295076,
+        0.1978785736853641
+      ],
+      "positive": 1879,
+      "ties": 0,
+      "wilcoxon_p": 9.598224093345951e-104,
+      "sign_p": 6.546569391199063e-82,
+      "mean_in": 0.6242206239074685,
+      "mean_out": 0.4419040730707621
+    },
+    {
+      "role": "filler",
+      "matching": "sentence",
+      "metric": "correct",
+      "matched_cells": 11694,
+      "n_pairs": 3586,
+      "mean_diff": -0.08229818682296393,
+      "ci95": [
+        -0.09329275070695632,
+        -0.07142616408153668
+      ],
+      "positive": 1254,
+      "ties": 346,
+      "wilcoxon_p": 8.075162297278424e-50,
+      "sign_p": 4.647959219212813e-38,
+      "mean_in": 0.4420511346122471,
+      "mean_out": 0.524349321435211
+    },
+    {
+      "role": "filler",
+      "matching": "sentence",
+      "metric": "p_chain",
+      "matched_cells": 11694,
+      "n_pairs": 3586,
+      "mean_diff": -0.0845937173939013,
+      "ci95": [
+        -0.09318656452330881,
+        -0.07602857200722461
+      ],
+      "positive": 1295,
+      "ties": 0,
+      "wilcoxon_p": 2.6062800621064494e-83,
+      "sign_p": 8.625724163905974e-63,
+      "mean_in": 0.34018046443398414,
+      "mean_out": 0.4247741818278855
+    },
+    {
+      "role": "filler",
+      "matching": "sentence_and_pos",
+      "metric": "correct",
+      "matched_cells": 5888,
+      "n_pairs": 2800,
+      "mean_diff": 0.006430080782312923,
+      "ci95": [
+        -0.012739376948696146,
+        0.025612768211451246
+      ],
+      "positive": 911,
+      "ties": 1018,
+      "wilcoxon_p": 0.4713908401082959,
+      "sign_p": 0.35555743572481735,
+      "mean_in": 0.45272769982993194,
+      "mean_out": 0.446297619047619
+    },
+    {
+      "role": "filler",
+      "matching": "sentence_and_pos",
+      "metric": "p_chain",
+      "matched_cells": 5888,
+      "n_pairs": 2800,
+      "mean_diff": 0.0032497950718082904,
+      "ci95": [
+        -0.010123344267158036,
+        0.016367073979664817
+      ],
+      "positive": 1432,
+      "ties": 0,
+      "wilcoxon_p": 0.3679578992779349,
+      "sign_p": 0.23380952416264827,
+      "mean_in": 0.3493241130740351,
+      "mean_out": 0.34607431800222677
+    },
+    {
+      "role": "all_inside",
+      "matching": "sentence",
+      "metric": "correct",
+      "matched_cells": 12287,
+      "n_pairs": 3634,
+      "mean_diff": 0.07368611181248277,
+      "ci95": [
+        0.06401388131210169,
+        0.0832656815952822
+      ],
+      "positive": 2116,
+      "ties": 103,
+      "wilcoxon_p": 9.261831039625504e-49,
+      "sign_p": 3.115172193045201e-32,
+      "mean_in": 0.5983214998146842,
+      "mean_out": 0.5246353880022014
+    },
+    {
+      "role": "all_inside",
+      "matching": "sentence",
+      "metric": "p_chain",
+      "matched_cells": 12287,
+      "n_pairs": 3634,
+      "mean_diff": 0.09063085610092098,
+      "ci95": [
+        0.08239176490755383,
+        0.09868963553966603
+      ],
+      "positive": 2358,
+      "ties": 0,
+      "wilcoxon_p": 4.0030934793406184e-95,
+      "sign_p": 5.6538226114144603e-73,
+      "mean_in": 0.5151151480195227,
+      "mean_out": 0.42448429191860165
+    },
+    {
+      "role": "all_inside",
+      "matching": "sentence_and_pos",
+      "metric": "correct",
+      "matched_cells": 9862,
+      "n_pairs": 3384,
+      "mean_diff": 0.08202971968929415,
+      "ci95": [
+        0.0675051262477016,
+        0.09673281170845996
+      ],
+      "positive": 1550,
+      "ties": 839,
+      "wilcoxon_p": 1.1454018230393545e-29,
+      "sign_p": 2.883585250828488e-28,
+      "mean_in": 0.5821380727231792,
+      "mean_out": 0.5001083530338849
+    },
+    {
+      "role": "all_inside",
+      "matching": "sentence_and_pos",
+      "metric": "p_chain",
+      "matched_cells": 9862,
+      "n_pairs": 3384,
+      "mean_diff": 0.09581071524822145,
+      "ci95": [
+        0.08432024731209148,
+        0.10720908824616336
+      ],
+      "positive": 2106,
+      "ties": 0,
+      "wilcoxon_p": 3.0901615634840623e-59,
+      "sign_p": 2.585337584480025e-46,
+      "mean_in": 0.49766276704256973,
+      "mean_out": 0.4018520517943483
+    }
+  ],
+  "interpretation": "Outside means outside the annotated target span, not absence of all constructions. Up to two words uniformly sampled per eligible sentence before scoring. Comparisons average sentence (or sentence-POS) differences within construction, then weight constructions equally; CI resamples constructions. Word identities are not controlled; use RNC matched-form analysis alongside this."
+}

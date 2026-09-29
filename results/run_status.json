@@ -1,5 +1,11 @@
 {
-  "stage": "constructicon_scoring",
-  "state": "waiting_for_existing_job",
-  "updated_utc": "2026-09-27T20:19:40.410939+00:00"
+  "stage": "cutoff_analysis",
+  "state": "cutoff_analysis_complete",
+  "updated_utc": "2026-09-29T07:15:13.441031+00:00",
+  "scoring_state": "stopped_by_user",
+  "report": "report/findings.pdf",
+  "rnc_scored": 50992,
+  "rnc_eligible": 165772,
+  "rnc_unscored": 114780,
+  "colab_results_imported": false
 }
